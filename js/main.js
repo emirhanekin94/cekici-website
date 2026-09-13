@@ -312,4 +312,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 9. Galeri Sayfası Filtreleme Sekmeleri
+  const galleryFilterTabs = document.querySelectorAll('[data-gallery-filter]');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  if (galleryFilterTabs.length > 0 && galleryItems.length > 0) {
+    galleryFilterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        galleryFilterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filterVal = tab.getAttribute('data-gallery-filter');
+
+        galleryItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filterVal === 'all' || category === filterVal) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 });
