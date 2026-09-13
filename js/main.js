@@ -280,4 +280,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 8. Google Müşteri Yorumları Tümünü Göster / Gizle
+  const toggleReviewsBtn = document.getElementById('btn-toggle-reviews');
+  const reviewsContainer = document.getElementById('reviews-container');
+
+  if (toggleReviewsBtn && reviewsContainer) {
+    toggleReviewsBtn.addEventListener('click', () => {
+      const isExpanded = reviewsContainer.classList.toggle('expanded');
+      toggleReviewsBtn.classList.toggle('active', isExpanded);
+
+      const btnText = toggleReviewsBtn.querySelector('span');
+      const btnIcon = toggleReviewsBtn.querySelector('svg');
+
+      if (isExpanded) {
+        if (btnText) btnText.textContent = 'Daha Az Yorum Göster';
+        if (btnIcon) btnIcon.style.transform = 'rotate(180deg)';
+      } else {
+        const isMobile = window.innerWidth <= 768;
+        if (btnText) {
+          btnText.textContent = isMobile 
+            ? 'Tüm Yorumları Göster (18 Yorum)' 
+            : 'Tüm Google Yorumlarını Göster (18 Gerçek Yorum)';
+        }
+        if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
+
+        const reviewsSection = document.getElementById('yorumlar');
+        if (reviewsSection) {
+          reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
 });

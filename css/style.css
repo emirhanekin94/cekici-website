@@ -1118,6 +1118,11 @@ ul {
   gap: 22px;
 }
 
+/* Masaüstünde başlangıçta yalnızca 6 yorum gösterilir */
+.reviews-grid:not(.expanded) .review-card:nth-child(n+7) {
+  display: none !important;
+}
+
 .review-card {
   background-color: var(--bg-page);
   border: 1px solid var(--border-light);
@@ -2245,11 +2250,57 @@ ul {
   }
 
   .reviews-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
-  /* Mobilde yalnızca 3 yorum göster */
-  .reviews-grid .review-card:nth-child(n+4) {
+  /* Mobilde başlangıçta tam 4 yorum göster */
+  .reviews-grid:not(.expanded) .review-card:nth-child(n+5) {
     display: none !important;
+  }
+  /* Mobilde yorum kartlarını küçült (1 ekrana 2 kart sığacak kompaktlıkta) */
+  .review-card {
+    padding: 12px 14px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .review-header {
+    gap: 10px !important;
+    margin-bottom: 5px !important;
+  }
+  .reviewer-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.85rem !important;
+  }
+  .reviewer-name {
+    font-size: 0.85rem !important;
+  }
+  .review-meta {
+    font-size: 0.68rem !important;
+  }
+  .review-stars {
+    font-size: 0.78rem !important;
+    margin-bottom: 4px !important;
+  }
+  .review-tag {
+    font-size: 0.68rem !important;
+    padding: 2px 7px !important;
+    margin-bottom: 5px !important;
+  }
+  .review-body {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 5px !important;
+  }
+  .owner-reply-box {
+    padding: 7px 10px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.32 !important;
+    margin-top: 4px !important;
+    border-radius: 6px !important;
+  }
+  .owner-reply-header {
+    font-size: 0.72rem !important;
+    margin-bottom: 2px !important;
   }
 }
 
