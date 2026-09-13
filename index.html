@@ -91,8 +91,9 @@
       <nav class="main-nav" aria-label="Ana Menü">
         <ul>
           <li><a href="index.html" class="active">Ana Sayfa</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
           <li><a href="hizmetler/index.html">Hizmetlerimiz</a></li>
-          <li><a href="#bolgeler">Bölgelerimiz</a></li>
+          <li><a href="bolgeler/index.html">Bölgelerimiz</a></li>
           <li><a href="#galeri">Foto Galeri</a></li>
           <li><a href="blog/index.html">Rehber / Blog</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
@@ -163,23 +164,47 @@
         
         <form class="wp-contact-form" id="hero-quote-form">
           <div class="wp-form-group">
-            <label class="wp-form-label">Bulunduğunuz Konum / İlçe *</label>
-            <input type="text" name="from_location" class="wp-form-input" placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu" required>
-          </div>
-          
-          <div class="wp-form-group">
-            <label class="wp-form-label">Bırakılacağı Hedef / Sanayi *</label>
-            <input type="text" name="to_location" class="wp-form-input" placeholder="Örn: İçmeler Sanayi, Bostancı veya Servis" required>
+            <label class="wp-form-label">Bulunduğunuz Bölge / Lokasyon *</label>
+            <select name="region_select" class="wp-form-select" required>
+              <option value="" disabled selected>Bölge Seçiniz</option>
+              <option value="Tuzla">Tuzla Çekici</option><option value="Sabiha Gökçen">Sabiha Gökçen Çekici</option><option value="Kuzey Marmara">Kuzey Marmara Çekici</option><option value="TEM Otoyolu">TEM Otoyolu Çekici</option><option value="D-100 E-5">D-100 E-5 Çekici</option><option value="Akfırat">Akfırat Çekici</option><option value="Tepeören">Tepeören Çekici</option><option value="Orhanlı">Orhanlı Çekici</option><option value="Aydınlı">Aydınlı Çekici</option><option value="İçmeler">İçmeler Çekici</option><option value="Aydıntepe">Aydıntepe Çekici</option><option value="Şifa Mahallesi">Şifa Mahallesi Çekici</option><option value="Esenyalı">Esenyalı Çekici</option><option value="Güzelyalı">Güzelyalı Çekici</option><option value="Kurtköy">Kurtköy Çekici</option><option value="Sevindikli">Sevindikli Çekici</option><option value="Tuzla Marina">Tuzla Marina Çekici</option><option value="İstanbul Park">İstanbul Park Çekici</option><option value="Gebze">Gebze Çekici</option><option value="Çayırova">Çayırova Çekici</option><option value="Eskihisar">Eskihisar Çekici</option><option value="Bayramoğlu">Bayramoğlu Çekici</option><option value="Darıca">Darıca Çekici</option><option value="Pendik">Pendik Çekici</option>
+            </select>
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">Araç Modeli ve Durumu *</label>
-            <input type="text" name="car_model" class="wp-form-input" placeholder="Örn: Ford Focus - Marş basmıyor / Kaza yaptı" required>
+            <label class="wp-form-label">Araç Türü *</label>
+            <select name="vehicle_type_select" class="wp-form-select" required>
+              <option value="Otomobil" selected>Otomobil (Binek / SUV / Sedan)</option>
+              <option value="Motosiklet">Motosiklet</option>
+              <option value="Kamyonet">Kamyonet / Hafif Ticari</option>
+              <option value="Minibüs">Minibüs / Panelvan</option>
+              <option value="Karavan">Karavan / Römork</option>
+              <option value="ATV">ATV / UTV</option>
+              <option value="Tekne">Tekne / Bot</option>
+            </select>
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">İletişim Numaranız (İsteğe Bağlı)</label>
-            <input type="tel" name="user_phone" class="wp-form-input" placeholder="05XX XXX XX XX">
+            <label class="wp-form-label">Yaşanan Problem / Arıza *</label>
+            <select name="problem_select" class="wp-form-select" required>
+              <option value="Trafik Kazası (Yürümüyor)">Trafik Kazası (Yürümüyor / Hasarlı)</option>
+              <option value="Motor / Mekanik Arızası">Motor / Mekanik Arızası (Stop Etti)</option>
+              <option value="Akü Bitti / Marş Basmıyor">Akü Bitti / Marş Basmıyor</option>
+              <option value="Lastik Patladı / Stepne Yok">Lastik Patladı / Stepne Yok</option>
+              <option value="Şanzıman / Vites Kilitlendi">Şanzıman / Vites Kilitlendi</option>
+              <option value="Çamura / Şarampole Saplandı">Çamura / Şarampole Saplandı (Vinç Lazım)</option>
+              <option value="Özel Araç Nakliyesi">Özel Araç Nakliyesi (Servise / Şehirlerarası)</option>
+            </select>
+          </div>
+
+          <div class="wp-form-group">
+            <label class="wp-form-label">Bırakılacağı Hedef / Sanayi</label>
+            <input type="text" name="to_location" class="wp-form-input" placeholder="Örn: İçmeler Sanayi, Bostancı veya Servis">
+          </div>
+
+          <div class="wp-form-group">
+            <label class="wp-form-label">Kısa Not / Ek Açıklama</label>
+            <input type="text" name="user_note" class="wp-form-input" placeholder="Örn: Tekerlek kilitli, yeraltı otoparkında">
           </div>
 
           <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 14px; margin-top: 10px;">
@@ -288,6 +313,104 @@
     </div>
   </section>
 
+  <!-- Neden Biz? (Why Choose Us) -->
+  <section class="section" style="background: var(--bg-light); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Kurumsal Güvence</span>
+        <h2 class="section-title">Neden XXX Oto Çekici?</h2>
+        <p class="section-desc">Bizi diğer aracı komisyonculardan ve platformlardan ayıran 6 temel esnaflık prensibimiz:</p>
+      </div>
+
+      <div class="why-us-grid">
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h3 class="why-us-title">15 Dakika Ulaşım Garantisi</h3>
+          <p class="why-us-desc">Tuzla, E-5, TEM ve Sabiha Gökçen hatlarında sürekli nöbetçi bekleyen araçlarımızla çağrınızı aldığımız an en yakın ekibimiz yola çıkar.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <h3 class="why-us-title">%100 Kaskolu & Hasarsız Taşıma</h3>
+          <p class="why-us-desc">Aracınız kayar kasaya yüklendiği andan gideceği servise inene kadar tam kapsamlı taşıyıcı sigortası altındadır. Sıfır risk.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          </div>
+          <h3 class="why-us-title">Sabit Fiyat Sözü (Sürpriz Yok)</h3>
+          <p class="why-us-desc">Telefonda anlaştığımız rakam geçerlidir. Olay yerine gelindiğinde veya teslimatta 'yol uzadı', 'gece tarifesi' gibi sonradan eklenen sürprizler yoktur.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg>
+          </div>
+          <h3 class="why-us-title">Özel Donanımlı Kayar Kasa</h3>
+          <p class="why-us-desc">Alçak tamponlu spor otomobiller, lüks SUV'lar ve otomatik vitesli araçlar için özel rampa aparatları ve jant kemerleri kullanıyoruz.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+          </div>
+          <h3 class="why-us-title">7/24 Kesintisiz Gerçek Nöbetçi Ekip</h3>
+          <p class="why-us-desc">Gece 03:00'da da bayram sabahında da telefonlarımıza doğrudan direksiyon başındaki operatörümüz cevap verir. Çağrı merkezi bekletmesi yok.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+          </div>
+          <h3 class="why-us-title">Yerel Bölge Uzmanlığı</h3>
+          <p class="why-us-desc">Tuzla sanayilerini, KOSB ve Birlik OSB yollarını, otoyol viyadük ve kaçış noktalarını avucumuzun içi gibi biliyoruz; vakit kaybettirmeden ulaşırız.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Adımlı İşleyiş Süreci -->
+  <section class="section" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nasıl Çalışıyoruz?</span>
+        <h2 class="section-title">4 Kolay Adımda Güvenli Kurtarma</h2>
+        <p class="section-desc">Yolda kaldığınızda sürecimiz tamamen şeffaf, hızlı ve kontrollü ilerler:</p>
+      </div>
+
+      <div class="process-steps-luxury">
+        <div class="process-step-item">
+          <div class="step-badge-num">1</div>
+          <h3 class="step-title">Konum Paylaşımı</h3>
+          <p class="step-desc">Telefonla arayın veya WhatsApp butonuna basarak tek tıkla canlı GPS konumunuzu bize iletin.</p>
+        </div>
+
+        <div class="process-step-item">
+          <div class="step-badge-num">2</div>
+          <h3 class="step-title">Sabit Fiyat & Süre Teyidi</h3>
+          <p class="step-desc">Konumunuz ve araç durumunuza göre net ücreti ve nöbetçi ekibin tam varış dakikasını teyit ederiz.</p>
+        </div>
+
+        <div class="process-step-item">
+          <div class="step-badge-num">3</div>
+          <h3 class="step-title">Güvenli Yükleme</h3>
+          <p class="step-desc">10-15 dakikada gelen çekicimiz, tampon ve mekaniğe zarar vermeden aracınızı kayar kasaya kaskolu sabitler.</p>
+        </div>
+
+        <div class="process-step-item">
+          <div class="step-badge-num">4</div>
+          <h3 class="step-title">Hedefe Hasarsız Teslimat</h3>
+          <p class="step-desc">Aracınız istediğiniz yetkili servise, tamirhaneye veya evinize güvenle teslim edilir; işlem tamamlanır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 24 Bölge Lüks Kart Sistemi (Yenilendi) -->
   <section class="section section-dark" id="bolgeler">
     <div class="container">
@@ -306,8 +429,8 @@
         <button class="filter-tab-btn" data-filter="kocaeli">Gebze & Darıca</button>
       </div>
 
-      <div class="regions-matrix">
-        
+      <div class="regions-matrix" id="regions-container">
+
         <a href="bolgeler/tuzla-oto-cekici.html" class="region-card-luxury" data-category="tuzla">
           <div class="region-card-top">
             <div class="region-icon-badge">
@@ -318,11 +441,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Tuzla Oto Çekici</h3>
-          <p class="region-card-sub">İçmeler, Aydınlı, Marina, Tepeören, E-5</p>
+          <h3 class="region-card-name">Tuzla Çekici</h3>
+          <p class="region-card-sub">İçmeler, Aydınlı, Marina, Tepeören, Yayla, E-5</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 - 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -341,11 +464,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Sabiha Gökçen Havalimanı</h3>
-          <p class="region-card-sub">Terminal, Otoparklar, Kargo Alanı, Bağlantı Yolu</p>
+          <h3 class="region-card-name">Sabiha Gökçen Çekici</h3>
+          <p class="region-card-sub">Dış Hatlar, İç Hatlar, Kargo Terminali, Bağlantı Yolu</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -364,11 +487,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Kuzey Marmara Otoyolu</h3>
-          <p class="region-card-sub">Kurnaköy, Sevindikli, Gişeler ve Tesisler</p>
+          <h3 class="region-card-name">Kuzey Marmara Çekici</h3>
+          <p class="region-card-sub">Kurnaköy Gişeleri, Sevindikli, Dinlenme Tesisleri</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -388,10 +511,10 @@
             </span>
           </div>
           <h3 class="region-card-name">TEM Otoyolu Çekici</h3>
-          <p class="region-card-sub">Kurtköy, Orhanlı, Şekerpınar Gişeler Hattı</p>
+          <p class="region-card-sub">Kurtköy Gişeler, Orhanlı Viyadüğü, Şekerpınar Ayrımı</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 - 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -410,11 +533,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">D-100 / E-5 Karayolu</h3>
-          <p class="region-card-sub">Tuzla Köprüsü, İçmeler, Tersaneler, Yan Yol</p>
+          <h3 class="region-card-name">D-100 E-5 Çekici</h3>
+          <p class="region-card-sub">Tuzla Köprüsü, İçmeler Köprüsü, Tersaneler, Yan Yol</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -437,7 +560,7 @@
           <p class="region-card-sub">Formula 1 Çevresi, Villalar, Tepeören Yolu</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -456,11 +579,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Tepeören Lojistik Çekici</h3>
-          <p class="region-card-sub">Organize Sanayi, Lojistik Depoları, Göçbeyli</p>
+          <h3 class="region-card-name">Tepeören Çekici</h3>
+          <p class="region-card-sub">Organize Sanayi, Lojistik Depoları, Göçbeyli Sapağı</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 Dk
             </span>
             <span class="region-action-arrow">
@@ -479,11 +602,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Orhanlı Sanayi Çekici</h3>
-          <p class="region-card-sub">Mermerciler, Aykosan, Deri OSB, Nakliyeciler</p>
+          <h3 class="region-card-name">Orhanlı Çekici</h3>
+          <p class="region-card-sub">Mermerciler Sanayi, Aykosan, Deri OSB, Nakliyeciler</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -503,10 +626,10 @@
             </span>
           </div>
           <h3 class="region-card-name">Aydınlı Çekici</h3>
-          <p class="region-card-sub">KOSB, Birlik OSB, Aydınlı Konutları & Bağlantı</p>
+          <p class="region-card-sub">KOSB, Birlik OSB, Aydınlı Konutları, Çamlıbelde</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -525,11 +648,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">İçmeler Köprüsü & Sanayi</h3>
+          <h3 class="region-card-name">İçmeler Çekici</h3>
           <p class="region-card-sub">E-5 Köprü Üstü, İstasyon, İçmeler Sanayi Sitesi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 8 - 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -549,10 +672,10 @@
             </span>
           </div>
           <h3 class="region-card-name">Aydıntepe Çekici</h3>
-          <p class="region-card-sub">Tuzla Devlet Hastanesi Civarı, Sahil Yolu</p>
+          <p class="region-card-sub">Tuzla Devlet Hastanesi Civarı, Sahil Yolu, 100. Yıl Cad.</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -575,7 +698,7 @@
           <p class="region-card-sub">E-5 Sınırı, Şekerpınar Girişi, Emiroğlu Caddesi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -598,7 +721,7 @@
           <p class="region-card-sub">Fatih Mahallesi, Necmettin Erbakan Caddesi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 Dk
             </span>
             <span class="region-action-arrow">
@@ -617,11 +740,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Güzelyalı Sahil Çekici</h3>
-          <p class="region-card-sub">Güzelyalı Tren İstasyonu, Sahil Bulvarı</p>
+          <h3 class="region-card-name">Güzelyalı Çekici</h3>
+          <p class="region-card-sub">Güzelyalı Tren İstasyonu, Sahil Bulvarı, Tersaneler</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -640,11 +763,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Kurtköy Viaport Çekici</h3>
-          <p class="region-card-sub">Viaport AVM, Yenişehir, Atlantis, Havaalanı</p>
+          <h3 class="region-card-name">Kurtköy Çekici</h3>
+          <p class="region-card-sub">Viaport AVM, Yenişehir, Atlantis, Havaalanı Kavşağı</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 Dk
             </span>
             <span class="region-action-arrow">
@@ -663,11 +786,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Sevindikli Otoyol Tesisleri</h3>
+          <h3 class="region-card-name">Sevindikli Çekici</h3>
           <p class="region-card-sub">Kuzey Marmara Dinlenme Tesisleri, Kocaeli Etabı</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 - 20 Dk
             </span>
             <span class="region-action-arrow">
@@ -686,11 +809,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Tuzla Viaport Marina</h3>
-          <p class="region-card-sub">Marina Sahil, Balıkçılar Çarşısı, Postane Mah.</p>
+          <h3 class="region-card-name">Tuzla Marina Çekici</h3>
+          <p class="region-card-sub">Marina Sahil, Balıkçılar Çarşısı, Postane Mahallesi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 Dk
             </span>
             <span class="region-action-arrow">
@@ -709,11 +832,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">İstanbul Park / Formula 1</h3>
-          <p class="region-card-sub">Pist Çevresi, Akfırat Yolu, F1 Bulvarı</p>
+          <h3 class="region-card-name">İstanbul Park Çekici</h3>
+          <p class="region-card-sub">Intercity Pist Çevresi, Akfırat Yolu, F1 Bulvarı</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 Dk
             </span>
             <span class="region-action-arrow">
@@ -732,11 +855,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Gebze Sanayi & Merkez</h3>
+          <h3 class="region-card-name">Gebze Çekici</h3>
           <p class="region-card-sub">GOSB, Otogar, Tatlıkuyu, D-100 Gebze Geçişi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -755,11 +878,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Çayırova TOSB Çekici</h3>
+          <h3 class="region-card-name">Çayırova Çekici</h3>
           <p class="region-card-sub">TOSB Otomotiv Yan Sanayi, Şekerpınar, Yenimahalle</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 12 Dk
             </span>
             <span class="region-action-arrow">
@@ -778,11 +901,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Eskihisar Feribot İskelesi</h3>
-          <p class="region-card-sub">Feribot Kuyruğu, Kale Çevresi, Sahil Yolu</p>
+          <h3 class="region-card-name">Eskihisar Çekici</h3>
+          <p class="region-card-sub">İDO Feribot Kuyruğu, Kale Çevresi, Sahil Yolu</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -801,11 +924,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Bayramoğlu Ada & Sahil</h3>
+          <h3 class="region-card-name">Bayramoğlu Çekici</h3>
           <p class="region-card-sub">Ada Girişi, Balyanoz Koyu, Plajlar Bölgesi</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -824,11 +947,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Darıca Sahil & Merkez</h3>
-          <p class="region-card-sub">Darıca Millet Bahçesi, İstasyon, Farabi Hastanesi</p>
+          <h3 class="region-card-name">Darıca Çekici</h3>
+          <p class="region-card-sub">Millet Bahçesi, İstasyon, Farabi Hastanesi, Sahil</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -847,11 +970,11 @@
               7/24 Nöbetçi
             </span>
           </div>
-          <h3 class="region-card-name">Pendik Sahil & Köprü</h3>
+          <h3 class="region-card-name">Pendik Çekici</h3>
           <p class="region-card-sub">Pendik Marina, E-5 Köprüsü, Çamlık, Kaynarca</p>
           <div class="region-card-footer">
             <span class="region-eta-tag">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               Varış: 10 - 15 Dk
             </span>
             <span class="region-action-arrow">
@@ -859,6 +982,13 @@
             </span>
           </div>
         </a>
+      </div>
+
+      <!-- Tüm Bölgeleri Göster Butonu -->
+      <div class="show-more-wrap">
+        <button type="button" class="btn-show-more" id="btn-toggle-all-regions">
+          <span>Tüm Bölgeleri Göster (24 Bölge) ▼</span>
+        </button>
       </div>
     </div>
   </section>
@@ -967,7 +1097,7 @@
         </div>
       </div>
 
-      <div class="reviews-grid">
+      <div class="reviews-grid" id="reviews-container">
         
         <div class="review-card">
           <div class="review-header">
@@ -1540,9 +1670,10 @@
         <div>
           <h4 class="footer-col-title">Kurumsal & İletişim</h4>
           <ul class="footer-links">
-            <li><a href="iletisim.html">İletişim & Harita</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="bolgeler/index.html">Tüm Hizmet Bölgelerimiz</a></li>
+            <li><a href="iletisim.html">İletişim & Konum</a></li>
             <li><a href="blog/index.html">Sürücü Rehberi & Blog</a></li>
-            <li><a href="index.html#galeri">Filomuz & Fotoğraflar</a></li>
             <li><a href="tel:05516756624">7/24 Acil İhbar Hattı</a></li>
           </ul>
           <div style="margin-top: 20px; font-size: 0.85rem; color: #94a3b8;">

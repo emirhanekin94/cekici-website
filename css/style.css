@@ -1551,7 +1551,241 @@ ul {
   }
 }
 
-@media (max-width: 640px) {
+/* ==========================================================================
+   DROPDOWN SELECT FORMLARI
+   ========================================================================== */
+.wp-form-select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-size: 0.92rem;
+  outline: none;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+.wp-form-select option {
+  background-color: #0d1424;
+  color: #ffffff;
+}
+
+.wp-form-select:focus {
+  border-color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.wp-form-select-light {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23334155'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.wp-form-select-light option {
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+.wp-form-select-light:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   NEDEN BİZ? (WHY CHOOSE US)
+   ========================================================================== */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.why-us-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.why-us-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 85, 0, 0.35);
+}
+
+.why-us-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.why-us-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.why-us-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.why-us-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   İŞLEYİŞ SÜRECİ (PROCESS STEPS)
+   ========================================================================== */
+.process-steps-luxury {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.process-step-item {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: var(--transition);
+}
+
+.process-step-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.step-badge-num {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-gradient);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  box-shadow: var(--primary-glow);
+}
+
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   TÜMÜNÜ GÖSTER (SHOW MORE)
+   ========================================================================== */
+.show-more-wrap {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.btn-show-more {
+  background: #ffffff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-show-more:hover {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  box-shadow: var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+.is-hidden-initially {
+  display: none !important;
+}
+
+/* ==========================================================================
+   MOBİL İÇİN TAM EN ALT SABİT BAR & HERO DÜZELTMESİ
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px !important;
+  }
+  .floating-actions-wrap {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    z-index: 99999 !important;
+    background: rgba(7, 11, 20, 0.98) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35) !important;
+    padding: 8px 10px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .floating-btn {
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 12px 6px !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+  }
+  .floating-beacon {
+    display: none !important;
+  }
+  /* Mobilde Hero'daki arama butonlarını gizle (en altta zaten sabit 2 buton var) */
+  .hero-buttons {
+    display: none !important;
+  }
   .hero-section {
     padding: 45px 0 55px;
   }
@@ -1562,16 +1796,6 @@ ul {
   .hero-subtitle {
     font-size: 0.95rem;
     margin-bottom: 22px;
-  }
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 25px;
-  }
-  .hero-buttons .btn {
-    width: 100%;
-    padding: 13px 18px;
-    font-size: 0.95rem;
   }
   .hero-stats {
     display: grid;
@@ -1601,27 +1825,5 @@ ul {
   }
   .reviews-grid {
     grid-template-columns: 1fr;
-  }
-  .floating-actions-wrap {
-    bottom: 14px;
-    right: 12px;
-    gap: 8px;
-  }
-  .floating-btn {
-    padding: 10px 15px;
-    font-size: 0.83rem;
-    font-weight: 800;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-  }
-  .floating-btn .svg-icon {
-    width: 18px !important;
-    height: 18px !important;
-  }
-  .floating-beacon {
-    top: 4px;
-    right: 8px;
-    width: 7px;
-    height: 7px;
   }
 }
