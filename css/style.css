@@ -3032,3 +3032,17 @@ article:hover .blog-card-img-wrap img {
   }
 }
 
+/* Netlify Visual Feedback Drawer & Badge'ini Kesin Olarak Gizle */
+#netlify-drawer-root,
+netlify-drawer,
+[data-netlify-drawer],
+iframe[src*="netlify-drawer"],
+iframe[title*="Netlify"],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+
