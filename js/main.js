@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const PHONE_NUMBER = '905516756624';
 
-  // 1. Mobil Menü Aç/Kapat (3 Çizgi Animasyonlu ve Kusursuz Çalışır)
+  // 1. Mobil Menü Aç/Kapat (Üstten Dikey Akordeon Şeklinde Açılır, Asla Yandan Değil)
   const menuBtn = document.querySelector('.menu-toggle-btn');
   const mainNav = document.querySelector('.main-nav');
 
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isActive = menuBtn.classList.toggle('active');
       mainNav.classList.toggle('active');
       menuBtn.setAttribute('aria-expanded', isActive);
-      document.body.style.overflow = isActive ? 'hidden' : '';
     });
 
     // Menü içindeki linke tıklandığında menüyü kapat
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.classList.remove('active');
         mainNav.classList.remove('active');
         menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
       });
     });
 
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.classList.remove('active');
         mainNav.classList.remove('active');
         menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
       }
     });
   }
