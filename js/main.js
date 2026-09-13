@@ -1,8 +1,10 @@
 /**
- * XXX OTO ÇEKİCİ & KURTARMA - TEMEL ETKİLEŞİM VE DÖNÜŞÜM SCRİPTİ
+ * XXX OTO ÇEKİCİ & KURTARMA - GELİŞMİŞ ETKİLEŞİM VE WHATSAPP FORMU SCRİPTİ
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const PHONE_NUMBER = '905516756624';
+
   // 1. Mobil Menü Aç/Kapat
   const menuBtn = document.querySelector('.menu-toggle-btn');
   const mainNav = document.querySelector('.main-nav');
@@ -14,6 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
       menuBtn.setAttribute('aria-expanded', isOpen);
       menuBtn.innerHTML = isOpen ? '✕' : '☰';
     });
+
+    // Menü içindeki linke tıklandığında menüyü kapat
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        if (menuBtn) {
+          menuBtn.innerHTML = '☰';
+          menuBtn.setAttribute('aria-expanded', false);
+        }
+      });
+    });
   }
 
   // 2. SSS (FAQ) Akordiyon Etkileşimi
@@ -24,50 +37,82 @@ document.addEventListener('DOMContentLoaded', () => {
       questionBtn.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
         
-        // Diğer açık olanları kapat
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('active');
           }
         });
 
-        // Tıklananı aç/kapat
         item.classList.toggle('active', !isActive);
       });
     }
   });
 
-  // 3. Akıllı WhatsApp Konum Gönderme
-  // Eğer kullanıcı konum butonuna tıklarsa GPS konumunu alıp direkt WhatsApp mesajına ekler
+  // 3. Akıllı WhatsApp Konum Gönderme Butonları
   const geoLocationBtns = document.querySelectorAll('.btn-send-location');
   geoLocationBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const phone = '905516756624';
       
       if (navigator.geolocation) {
-        btn.innerHTML = '<span>📍 Konum alınıyor...</span>';
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>📍 Konum tespiti yapılıyor...</span>';
+        
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
             const message = encodeURIComponent(`Merhaba XXX Oto Çekici, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`);
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-            btn.innerHTML = '<span>💬 WhatsApp Konum Gönder</span>';
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${message}`, '_blank');
+            btn.innerHTML = originalText;
           },
           (error) => {
-            // Konum izni verilmezse standart WhatsApp mesajına yönlendir
             const defaultMsg = encodeURIComponent('Merhaba XXX Oto Çekici, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ');
-            window.open(`https://wa.me/${phone}?text=${defaultMsg}`, '_blank');
-            btn.innerHTML = '<span>💬 WhatsApp Konum Gönder</span>';
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
+            btn.innerHTML = originalText;
           },
           { timeout: 8000, enableHighAccuracy: true }
         );
       } else {
         const defaultMsg = encodeURIComponent('Merhaba XXX Oto Çekici, acil oto çekici / yol yardıma ihtiyacım var.');
-        window.open(`https://wa.me/${phone}?text=${defaultMsg}`, '_blank');
+        window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
       }
+    });
+  });
+
+  // 4. WhatsApp İletişim / Teklif Formu Gönderme (Tüm Sayfalarda Çalışır)
+  const wpForms = document.querySelectorAll('.wp-contact-form');
+  wpForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const fromInput = form.querySelector('[name="from_location"]');
+      const toInput = form.querySelector('[name="to_location"]');
+      const carInput = form.querySelector('[name="car_model"]');
+      const phoneInput = form.querySelector('[name="user_phone"]');
+      const noteInput = form.querySelector('[name="user_note"]');
+
+      const fromVal = fromInput ? fromInput.value.trim() : 'Belirtilmedi';
+      const toVal = toInput ? toInput.value.trim() : 'Belirtilmedi';
+      const carVal = carInput ? carInput.value.trim() : 'Belirtilmedi';
+      const phoneVal = phoneInput ? phoneInput.value.trim() : 'Belirtilmedi';
+      const noteVal = noteInput ? noteInput.value.trim() : '';
+
+      let text = `🚨 *YENİ ÇEKİCİ / YOL YARDIM TALEBİ*\n\n`;
+      text += `📍 *Nereden (Konum):* ${fromVal}\n`;
+      text += `🏁 *Nereye (Hedef):* ${toVal}\n`;
+      text += `🚗 *Araç Modeli / Arıza Durumu:* ${carVal}\n`;
+      if (phoneVal !== 'Belirtilmedi') {
+        text += `📞 *İletişim Numarası:* ${phoneVal}\n`;
+      }
+      if (noteVal) {
+        text += `📝 *Ek Not:* ${noteVal}\n`;
+      }
+      text += `\nLütfen en kısa sürede fiyat ve varış süresi bilgisi veriniz.`;
+
+      const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, '_blank');
     });
   });
 });

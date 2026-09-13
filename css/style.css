@@ -1,7 +1,5 @@
 /* ==========================================================================
    XXX OTO ÇEKİCİ & KURTARMA - MODERN, HIZLI VE ULTRA SEO UYUMLU CSS
-   Renk Paleti: Acil Durum Turuncusu (#ff5e00), Emniyet Sarısı (#f59e0b),
-   Güven Laciverti (#0f172a / #1e293b), Acil Çağrı Yeşili (#10b981 / #25D366)
    ========================================================================== */
 
 :root {
@@ -14,27 +12,28 @@
   --green-call: #16a34a;
   --green-hover: #15803d;
   --whatsapp: #25D366;
-  --whatsapp-hover: #20ba59;
-  --bg-dark: #0b1120;
+  --whatsapp-hover: #1ebd5a;
+  --bg-dark: #070d18;
+  --bg-card-dark: #111c30;
   --bg-light: #f8fafc;
   --text-dark: #0f172a;
   --text-muted: #64748b;
   --text-light: #f8fafc;
   --border-color: #e2e8f0;
   --card-bg: #ffffff;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-floating: 0 12px 30px rgba(0, 0, 0, 0.22);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
   --radius-full: 9999px;
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Sıfırlama ve Temel Kurallar */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -53,13 +52,6 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-bottom: 72px; /* Mobilde yapışkan alt menü payı */
-}
-
-@media (min-width: 768px) {
-  body {
-    padding-bottom: 0;
-  }
 }
 
 a {
@@ -80,7 +72,7 @@ ul {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -88,12 +80,12 @@ ul {
 }
 
 /* ==========================================================================
-   ÜST BİLGİ VE ACİL ÇAĞRI ÇUBUĞU (TOP BAR)
+   ÜST ACİL DURUM BİLGİ ÇUBUĞU (TOP BAR)
    ========================================================================== */
 .top-bar {
   background-color: var(--secondary);
   color: #94a3b8;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -109,7 +101,8 @@ ul {
 .top-bar-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  font-weight: 500;
 }
 
 .badge-247 {
@@ -118,9 +111,9 @@ ul {
   gap: 6px;
   background: rgba(239, 68, 68, 0.2);
   color: #fca5a5;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -143,7 +136,7 @@ ul {
 .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
 }
 
 .top-phone-link {
@@ -159,14 +152,17 @@ ul {
 }
 
 /* ==========================================================================
-   ANA BAŞLIK VE MENÜ (HEADER & NAVBAR)
+   MODERN & GELİŞMİŞ NAVBAR (HEADER)
    ========================================================================== */
 .site-header {
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   transition: var(--transition);
 }
 
@@ -174,7 +170,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 76px;
 }
 
 .brand-logo {
@@ -184,8 +180,8 @@ ul {
 }
 
 .logo-icon {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #ffffff;
   display: flex;
@@ -193,7 +189,7 @@ ul {
   justify-content: center;
   border-radius: var(--radius-md);
   font-size: 1.5rem;
-  box-shadow: 0 4px 10px rgba(255, 94, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.35);
 }
 
 .logo-text {
@@ -214,8 +210,8 @@ ul {
 }
 
 .brand-subtitle {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -224,111 +220,189 @@ ul {
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .main-nav a {
   font-weight: 600;
   color: #334155;
-  font-size: 0.95rem;
-  padding: 8px 4px;
+  font-size: 0.92rem;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
   position: relative;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--primary);
-}
-
-.main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: var(--primary);
-  border-radius: 2px;
+  background-color: var(--primary-light);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
+.menu-toggle-btn {
+  display: none;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1.5rem;
+  color: var(--secondary);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   BUTONLAR
+   ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 11px 22px;
   border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
   border: none;
   transition: var(--transition);
+  text-align: center;
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), #ea580c);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(255, 94, 0, 0.28);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-hover);
+  background: linear-gradient(135deg, var(--primary-hover), #c2410c);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 94, 0, 0.38);
 }
 
 .btn-call {
-  background-color: var(--green-call);
+  background: linear-gradient(135deg, #15803d, #16a34a);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
 }
 
 .btn-call:hover {
-  background-color: var(--green-hover);
+  background: linear-gradient(135deg, #166534, #15803d);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
 }
 
 .btn-whatsapp {
-  background-color: var(--whatsapp);
+  background: linear-gradient(135deg, #20ba59, var(--whatsapp));
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
-  background-color: var(--whatsapp-hover);
+  background: linear-gradient(135deg, #19a34c, #20ba59);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
 }
 
 .btn-lg {
-  padding: 16px 28px;
-  font-size: 1.1rem;
-}
-
-.menu-toggle-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.75rem;
-  color: var(--secondary);
-  cursor: pointer;
-  padding: 4px;
+  padding: 15px 28px;
+  font-size: 1.05rem;
 }
 
 /* ==========================================================================
-   HERO / ACİL KURTARMA ALANI (HERO SECTION)
+   SAĞ ALT SABİT AKSİYON BUTONLARI (PROMINENT FLOATING CTA)
+   ========================================================================== */
+.floating-actions-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.floating-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-floating);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.floating-call {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-call:hover {
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.5);
+}
+
+.floating-whatsapp {
+  background: linear-gradient(135deg, #20ba59, #25D366);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-whatsapp:hover {
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+.floating-btn-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.floating-beacon {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  background-color: #facc15;
+  border-radius: 50%;
+  animation: pulse 1.4s infinite;
+}
+
+@media (max-width: 640px) {
+  .floating-actions-wrap {
+    bottom: 16px;
+    right: 14px;
+    gap: 8px;
+  }
+  .floating-btn {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   HERO BÖLÜMÜ (TEMİZ VE ETKİLİ TEK AKSİYON)
    ========================================================================== */
 .hero-section {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-dark) 100%);
   color: #ffffff;
-  padding: 60px 0 80px;
+  padding: 70px 0 85px;
   position: relative;
   overflow: hidden;
 }
@@ -340,9 +414,9 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(rgba(255, 94, 0, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 94, 0, 0.14) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.8;
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -350,7 +424,7 @@ ul {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 40px;
   align-items: center;
 }
@@ -359,8 +433,8 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 94, 0, 0.15);
-  border: 1px solid rgba(255, 94, 0, 0.3);
+  background: rgba(255, 94, 0, 0.18);
+  border: 1px solid rgba(255, 94, 0, 0.4);
   color: #fed7aa;
   padding: 6px 14px;
   border-radius: var(--radius-full);
@@ -370,7 +444,7 @@ ul {
 }
 
 .hero-title {
-  font-size: 2.75rem;
+  font-size: 2.85rem;
   font-weight: 900;
   line-height: 1.15;
   margin-bottom: 16px;
@@ -392,7 +466,7 @@ ul {
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 35px;
 }
 
@@ -425,113 +499,68 @@ ul {
   margin-top: 4px;
 }
 
-/* Hızlı Konum & Fiyat Kartı */
-.hero-quick-card {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Hızlı WhatsApp Fiyat & Konum Formu (Hero Sağ Tarafı) */
+.hero-form-card {
+  background: rgba(17, 28, 48, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 30px;
   box-shadow: var(--shadow-xl);
 }
 
-.quick-card-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.quick-card-title {
+.form-card-title {
   font-size: 1.35rem;
   font-weight: 800;
   color: #ffffff;
+  margin-bottom: 6px;
 }
 
-.quick-card-subtitle {
-  font-size: 0.875rem;
+.form-card-subtitle {
+  font-size: 0.85rem;
   color: #94a3b8;
-  margin-top: 4px;
+  margin-bottom: 20px;
 }
 
-.hero-call-box {
-  background: linear-gradient(135deg, #15803d, #16a34a);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 16px;
-  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
-  transition: var(--transition);
+.wp-form-group {
+  margin-bottom: 14px;
+}
+
+.wp-form-label {
   display: block;
-}
-
-.hero-call-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.4);
-}
-
-.hero-call-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.9;
-  font-weight: 600;
-}
-
-.hero-call-number {
-  font-size: 1.85rem;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  margin: 4px 0;
-}
-
-.hero-whatsapp-box {
-  background: #25D366;
-  border-radius: var(--radius-md);
-  padding: 16px;
-  text-align: center;
-  color: #ffffff;
+  font-size: 0.82rem;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  color: #cbd5e1;
+  margin-bottom: 5px;
+}
+
+.wp-form-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-size: 0.92rem;
+  outline: none;
   transition: var(--transition);
 }
 
-.hero-whatsapp-box:hover {
-  background: var(--whatsapp-hover);
-  transform: translateY(-3px);
+.wp-form-input:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.14);
 }
 
-.quick-features-list {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  font-size: 0.82rem;
-  color: #cbd5e1;
-}
-
-.quick-features-list li {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.quick-features-list li svg {
-  color: var(--accent);
-  flex-shrink: 0;
+.wp-form-input::placeholder {
+  color: #64748b;
 }
 
 /* ==========================================================================
-   ACİL HİZMETLER BÖLÜMÜ (SERVICES)
+   BÖLÜMLER & ORTAK DÜZEN
    ========================================================================== */
 .section {
-  padding: 80px 0;
+  padding: 75px 0;
 }
 
 .section-dark {
@@ -540,15 +569,15 @@ ul {
 
 .section-header {
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 50px;
+  max-width: 780px;
+  margin: 0 auto 45px;
 }
 
 .section-tag {
   display: inline-block;
   background-color: var(--primary-light);
   color: var(--primary);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -558,7 +587,7 @@ ul {
 }
 
 .section-title {
-  font-size: 2.25rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: var(--secondary);
   line-height: 1.25;
@@ -570,6 +599,7 @@ ul {
   color: var(--text-muted);
 }
 
+/* Hizmetler Izgarası */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -590,12 +620,12 @@ ul {
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(255, 94, 0, 0.3);
+  border-color: rgba(255, 94, 0, 0.35);
 }
 
 .service-icon-wrap {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   background: var(--primary-light);
   color: var(--primary);
   border-radius: var(--radius-md);
@@ -613,15 +643,15 @@ ul {
 }
 
 .service-title {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--secondary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .service-text {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   margin-bottom: 20px;
   flex-grow: 1;
 }
@@ -654,17 +684,13 @@ ul {
   font-size: 0.9rem;
 }
 
-.service-link:hover {
-  gap: 10px;
-}
-
 /* ==========================================================================
-   24 BÖLGE LİSTESİ (LOCAL SEO MATRIX)
+   24 BÖLGE MATRİSİ
    ========================================================================== */
 .regions-matrix {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
+  gap: 14px;
 }
 
 .region-item-card {
@@ -685,14 +711,9 @@ ul {
   transform: translateX(4px);
 }
 
-.region-info {
-  display: flex;
-  flex-direction: column;
-}
-
 .region-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--secondary);
 }
 
@@ -705,16 +726,103 @@ ul {
 .region-arrow {
   color: #94a3b8;
   font-size: 1.1rem;
-  transition: var(--transition);
-}
-
-.region-item-card:hover .region-arrow {
-  color: var(--primary);
-  transform: translateX(3px);
 }
 
 /* ==========================================================================
-   GERÇEK MÜŞTERİ YORUMLARI (REVIEWS & TESTIMONIALS)
+   BÖLGE SAYFALARI İÇİN GELİŞMİŞ UI BİLEŞENLERİ (REGION PAGES UI)
+   ========================================================================== */
+.region-badge-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.region-badge-pill {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.region-feature-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.process-step-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.process-step-num {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 900;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.process-step-title {
+  font-weight: 800;
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.process-step-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.table-vehicle-support {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+.table-vehicle-support th,
+.table-vehicle-support td {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.table-vehicle-support th {
+  background: var(--bg-light);
+  color: var(--secondary);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   YORUMLAR (REVIEWS)
    ========================================================================== */
 .reviews-section {
   background: #ffffff;
@@ -874,7 +982,7 @@ ul {
 }
 
 /* ==========================================================================
-   FOTOĞRAF ALANLARI & GALERİ (PHOTO PLACEHOLDERS)
+   FOTOĞRAFLAR & GALERİ
    ========================================================================== */
 .photo-gallery-grid {
   display: grid;
@@ -916,10 +1024,6 @@ ul {
   transition: transform 0.4s ease;
 }
 
-.photo-slot-card:hover .photo-box img {
-  transform: scale(1.05);
-}
-
 .photo-badge {
   position: absolute;
   top: 12px;
@@ -951,7 +1055,7 @@ ul {
 }
 
 /* ==========================================================================
-   NEDEN BİZ & GÜVENİLİRLİK (WHY CHOOSE US)
+   NEDEN BİZ
    ========================================================================== */
 .why-grid {
   display: grid;
@@ -988,11 +1092,10 @@ ul {
 }
 
 /* ==========================================================================
-   SSS / SIKÇA SORULAN SORULAR (FAQ ACCORDION)
+   SSS AKORDİYON
    ========================================================================== */
 .faq-wrap {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1023,7 +1126,7 @@ ul {
 }
 
 .faq-icon {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--primary);
   transition: transform 0.3s ease;
 }
@@ -1039,16 +1142,16 @@ ul {
   padding: 0 20px;
   color: #475569;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 600px;
   padding: 0 20px 20px;
 }
 
 /* ==========================================================================
-   HARİTA & İLETİŞİM ALANI (MAPS & CONTACT)
+   HARİTA & İLETİŞİM
    ========================================================================== */
 .map-contact-grid {
   display: grid;
@@ -1063,7 +1166,6 @@ ul {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
-  height: 100%;
   min-height: 420px;
 }
 
@@ -1090,54 +1192,50 @@ ul {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .contact-item-icon {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   background: var(--primary-light);
   color: var(--primary);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
 .contact-item-title {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--text-muted);
 }
 
 .contact-item-value {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--secondary);
 }
 
-.contact-item-value a:hover {
-  color: var(--primary);
-}
-
 /* ==========================================================================
-   FOOTER (ALT BİLGİ)
+   ZENGİN 4 SÜTUNLU FOOTER (TÜM SAYFALAR İÇİN)
    ========================================================================== */
 .site-footer {
   background-color: var(--secondary);
   color: #94a3b8;
-  padding: 70px 0 30px;
+  padding: 65px 0 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 .footer-col-title {
@@ -1154,7 +1252,7 @@ ul {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 35px;
+  width: 32px;
   height: 2px;
   background-color: var(--primary);
 }
@@ -1185,63 +1283,12 @@ ul {
 }
 
 /* ==========================================================================
-   MOBİL İÇİN YAPIŞKAN ACİL ÇAĞRI ÇUBUĞU (STICKY MOBILE BOTTOM CTA)
+   RESPONSIVE VE MOBİL MENÜ DÜZENLEMELERİ
    ========================================================================== */
-.mobile-sticky-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: #ffffff;
-  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
-  padding: 8px 12px;
-  border-top: 1px solid var(--border-color);
-}
-
-@media (max-width: 767px) {
-  .mobile-sticky-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-}
-
-.sticky-btn-call {
-  background: linear-gradient(135deg, #15803d, #16a34a);
-  color: #ffffff;
-  padding: 12px;
-  border-radius: var(--radius-md);
-  font-weight: 800;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
-}
-
-.sticky-btn-whatsapp {
-  background: #25D366;
-  color: #ffffff;
-  padding: 12px;
-  border-radius: var(--radius-md);
-  font-weight: 800;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-}
-
-/* ==========================================================================
-   RESPONSIVE DÜZENLEMELER
-   ========================================================================== */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
+    gap: 35px;
   }
   .map-contact-grid {
     grid-template-columns: 1fr;
@@ -1249,33 +1296,56 @@ ul {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+@media (max-width: 860px) {
   .main-nav {
     display: none;
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 76px;
     left: 0;
     right: 0;
-    background: #ffffff;
-    box-shadow: var(--shadow-xl);
-    padding: 20px;
-    border-top: 1px solid var(--border-color);
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 30px 25px;
+    z-index: 9999;
+    overflow-y: auto;
   }
   .main-nav.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
   .main-nav ul {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 18px;
+    width: 100%;
+  }
+  .main-nav a {
+    color: #ffffff;
+    font-size: 1.15rem;
+    padding: 10px 14px;
+    width: 100%;
+    border-radius: var(--radius-sm);
+  }
+  .main-nav a:hover,
+  .main-nav a.active {
+    background: rgba(255, 94, 0, 0.2);
+    color: #fed7aa;
   }
   .menu-toggle-btn {
-    display: block;
+    display: flex;
+  }
+  .header-actions .btn-call {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.15rem;
   }
   .section-title {
     font-size: 1.75rem;
@@ -1283,8 +1353,19 @@ ul {
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  .top-bar-left, .top-bar-right {
+  .top-bar-left {
     width: 100%;
     justify-content: center;
+    font-size: 0.78rem;
+  }
+  .top-bar-right {
+    display: none;
+  }
+  .hero-stats {
+    gap: 15px;
+    justify-content: space-between;
+  }
+  .stat-number {
+    font-size: 1.45rem;
   }
 }

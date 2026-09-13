@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header (Müşteri Yorumları Navbar'dan Çıkarıldı) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
@@ -70,7 +70,6 @@
           <li><a href="index.html">Ana Sayfa</a></li>
           <li><a href="hizmetler/index.html">Hizmetlerimiz</a></li>
           <li><a href="index.html#bolgeler">Bölgelerimiz</a></li>
-          <li><a href="index.html#yorumlar">Müşteri Yorumları</a></li>
           <li><a href="index.html#galeri">Foto Galeri</a></li>
           <li><a href="blog/index.html">Rehber / Blog</a></li>
           <li><a href="iletisim.html" class="active">İletişim</a></li>
@@ -128,7 +127,7 @@
             <div>
               <div class="contact-item-title">WhatsApp Destek & Konum</div>
               <div class="contact-item-value">
-                <a href="#" class="btn-send-location" style="color: var(--whatsapp);">WhatsApp Konum Gönder</a>
+                <a href="#" class="btn-send-location" style="color: var(--whatsapp);">Konum Paylaş & Fiyat Al</a>
               </div>
               <small style="color: var(--text-muted);">Canlı konumunuzu atın, en yakın çekici hemen yola çıksın</small>
             </div>
@@ -164,56 +163,121 @@
     </div>
   </section>
 
-  <!-- Hızlı Teklif / Mesaj Gönderme Formu -->
+  <!-- Doğrudan WhatsApp'a Düşen İletişim / Teklif Formu -->
   <section class="section section-dark">
     <div class="container" style="max-width: 800px;">
       <div class="section-header" style="margin-bottom: 30px;">
         <span class="section-tag">Hızlı Fiyat Teklifi</span>
         <h2 class="section-title">Çekici Fiyatı Öğrenin</h2>
-        <p class="section-desc">Aracınızın nereden nereye taşınacağını bize bildirin, anında net fiyat teklifi verelim.</p>
+        <p class="section-desc">Aracınızın nereden nereye taşınacağını bize bildirin, gönder butonuna bastığınızda mesaj doğrudan WhatsApp'a aktarılsın.</p>
       </div>
 
       <div style="background: #fff; padding: 35px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
-        <form onsubmit="event.preventDefault(); const from = document.getElementById('f_from').value; const to = document.getElementById('f_to').value; const car = document.getElementById('f_car').value; const msg = encodeURIComponent(`Merhaba XXX Oto Çekici, fiyat teklifi almak istiyorum.\nAlınacak Yer: ${from}\nGidecek Yer: ${to}\nAraç Modeli/Durumu: ${car}`); window.open(`https://wa.me/905516756624?text=${msg}`, '_blank');">
+        <form class="wp-contact-form">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
             <div>
               <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Alınacağı Konum / İlçe *</label>
-              <input type="text" id="f_from" required placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+              <input type="text" name="from_location" required placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
             </div>
             <div>
               <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Bırakılacağı Konum / Sanayi *</label>
-              <input type="text" id="f_to" required placeholder="Örn: İçmeler Sanayi veya Bostancı" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+              <input type="text" name="to_location" required placeholder="Örn: İçmeler Sanayi veya Bostancı" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
             </div>
           </div>
 
-          <div style="margin-bottom: 25px;">
+          <div style="margin-bottom: 20px;">
             <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Araç Tipi ve Durumu *</label>
-            <input type="text" id="f_car" required placeholder="Örn: Otomobil, yürür durumda / Kaza yaptı, teker kilitli" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+            <input type="text" name="car_model" required placeholder="Örn: Otomobil, yürür durumda / Kaza yaptı, teker kilitli" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-            ⚡ WhatsApp Üzerinden Anında Net Fiyat Al
+          <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">İletişim Numaranız (İsteğe Bağlı)</label>
+            <input type="tel" name="user_phone" placeholder="05XX XXX XX XX" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp btn-lg" style="width: 100%;">
+            🚀 WhatsApp'a Gönder & Anında Net Fiyat Al
           </button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Tam 4 Sütunlu Zengin Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-icon">🪝</div>
+            <div class="logo-text">
+              <span class="brand-title" style="color: #fff;">XXX <span>OTO ÇEKİCİ</span></span>
+              <span class="brand-subtitle">7/24 Yol Yardım</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+            XXX Oto Çekici ve Kurtarma olarak İstanbul Anadolu Yakası ve Kocaeli sınırlarında 7/24 profesyonel, kaskolu ve en uygun fiyatlı oto kurtarma hizmeti veriyoruz.
+          </p>
+          <a href="tel:05516756624" style="color: #fff; font-weight: 800; font-size: 1.2rem;">📞 0551 675 66 24</a>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hizmetlerimiz</h4>
+          <ul class="footer-links">
+            <li><a href="hizmetler/oto-kurtarma.html">7/24 Oto Kurtarma</a></li>
+            <li><a href="hizmetler/oto-cekici.html">Kayar Kasa Çekici</a></li>
+            <li><a href="hizmetler/yol-yardim-aku-takviye.html">Akü Takviye & Yol Yardım</a></li>
+            <li><a href="hizmetler/motosiklet-cekici.html">Motosiklet Çekici</a></li>
+            <li><a href="hizmetler/agir-vasita-kurtarma.html">Minibüs & Ticari Araç Çekici</a></li>
+            <li><a href="hizmetler/kaza-kurtarma-vinc.html">Kaza & Şarampol Vinç</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Popüler Bölgeler</h4>
+          <ul class="footer-links">
+            <li><a href="bolgeler/tuzla-oto-cekici.html">Tuzla Oto Çekici</a></li>
+            <li><a href="bolgeler/sabiha-gokcen-havalimani-oto-cekici.html">Sabiha Gökçen Çekici</a></li>
+            <li><a href="bolgeler/kuzey-marmara-otoyolu-oto-cekici.html">Kuzey Marmara Otoyolu</a></li>
+            <li><a href="bolgeler/tem-otoyolu-oto-cekici.html">TEM Otoyolu Çekici</a></li>
+            <li><a href="bolgeler/gebze-oto-cekici.html">Gebze Oto Çekici</a></li>
+            <li><a href="bolgeler/pendik-oto-cekici.html">Pendik Oto Çekici</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kurumsal & İletişim</h4>
+          <ul class="footer-links">
+            <li><a href="iletisim.html">İletişim & Harita</a></li>
+            <li><a href="blog/index.html">Sürücü Rehberi & Blog</a></li>
+            <li><a href="index.html#galeri">Filomuz & Fotoğraflar</a></li>
+            <li><a href="tel:05516756624">7/24 Acil İhbar Hattı</a></li>
+          </ul>
+          <div style="margin-top: 20px; font-size: 0.85rem; color: #94a3b8;">
+            Tuzla, Pendik, Gebze & Tüm Çevre Yolları Nöbetçi Çekici Noktası
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
         <div>© 2026 XXX Oto Çekici & Kurtarma. Tüm Hakları Saklıdır.</div>
         <div>7/24 Acil Çağrı: <a href="tel:05516756624" style="color: #fff; font-weight: 700;">0551 675 66 24</a></div>
       </div>
     </div>
   </footer>
 
-  <!-- Mobil Sticky Bar -->
-  <div class="mobile-sticky-bar">
-    <a href="tel:05516756624" class="sticky-btn-call">📞 Hemen Ara</a>
-    <a href="#" class="sticky-btn-whatsapp btn-send-location">💬 WhatsApp Konum</a>
-  </div>
+  <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları -->
+  <aside class="floating-actions-wrap" aria-label="Acil İletişim Butonları">
+    <a href="tel:05516756624" class="floating-btn floating-call" id="float-call-contact" title="0551 675 66 24">
+      <span class="floating-btn-icon">📞</span>
+      <span>0551 675 66 24</span>
+      <span class="floating-beacon"></span>
+    </a>
+    <a href="#" class="floating-btn floating-whatsapp btn-send-location" id="float-wp-contact" title="WhatsApp Konum Gönder">
+      <span class="floating-btn-icon">💬</span>
+      <span>WhatsApp Konum Gönder</span>
+    </a>
+  </aside>
 
   <script src="js/main.js"></script>
 </body>

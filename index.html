@@ -9,17 +9,17 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://xxx-otocekici.com/">
 
-  <!-- Open Graph / Sosyal Medya -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="XXX Oto Çekici & Oto Kurtarma | 7/24 En Yakın Acil Yol Yardım">
   <meta property="og:description" content="Tuzla, Pendik, Gebze ve Otoyollarda 15 dakikada en yakın çekici hizmeti. Uygun fiyat, kaskolu güvenli taşıma. 0551 675 66 24">
   <meta property="og:url" content="https://xxx-otocekici.com/">
   <meta property="og:locale" content="tr_TR">
 
-  <!-- Stil Dosyaları -->
+  <!-- Stil Dosyası -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Yapılandırılmış Veri (Schema.org LocalBusiness & EmergencyService) -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,9 +43,7 @@
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-      ],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       "opens": "00:00",
       "closes": "23:59"
     },
@@ -72,7 +70,7 @@
     <div class="container">
       <div class="top-bar-left">
         <span class="badge-247"><span class="pulse-dot"></span> 7/24 Kesintisiz Hizmet</span>
-        <span>📍 Tuzla, Pendik, Gebze & Tüm Otoyollarda Aktif Nöbetçi Çekici</span>
+        <span>📍 Tuzla, Pendik, Gebze & Tüm Çevre Otoyollarda Nöbetçi Çekici</span>
       </div>
       <div class="top-bar-right">
         <a href="tel:05516756624" class="top-phone-link" id="top-bar-phone">
@@ -82,7 +80,7 @@
     </div>
   </div>
 
-  <!-- Ana Navigasyon / Header -->
+  <!-- Ana Navigasyon / Header (Müşteri Yorumları Navbar'dan Kaldırıldı) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" title="XXX Oto Çekici">
@@ -98,7 +96,6 @@
           <li><a href="index.html" class="active">Ana Sayfa</a></li>
           <li><a href="hizmetler/index.html">Hizmetlerimiz</a></li>
           <li><a href="#bolgeler">Bölgelerimiz</a></li>
-          <li><a href="#yorumlar">Müşteri Yorumları</a></li>
           <li><a href="#galeri">Foto Galeri</a></li>
           <li><a href="blog/index.html">Rehber / Blog</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
@@ -114,7 +111,7 @@
     </div>
   </header>
 
-  <!-- Hero / Acil Kurtarma Alanı -->
+  <!-- Hero Bölümü (Sadece 1 Ara ve 1 WP Butonu, Sağ Tarafta Doğrudan WhatsApp Teklif Formu) -->
   <section class="hero-section">
     <div class="container hero-content">
       <div class="hero-text">
@@ -128,12 +125,13 @@
           Tuzla, Pendik, Gebze, Sabiha Gökçen Havalimanı, TEM ve Kuzey Marmara Otoyolu güzergahlarında donanımlı kayar kasa araçlarımızla 7 gün 24 saat hasarsız araç taşıma ve yol yardım hizmeti veriyoruz.
         </p>
 
+        <!-- Sadece 1 Arama ve 1 WhatsApp Konum Butonu -->
         <div class="hero-buttons">
           <a href="tel:05516756624" class="btn btn-call btn-lg" id="hero-phone-cta">
             📞 0551 675 66 24 (Hemen Ara)
           </a>
           <a href="#" class="btn btn-whatsapp btn-lg btn-send-location" id="hero-whatsapp-cta">
-            💬 WhatsApp'tan Konum At
+            💬 WhatsApp Konum Gönder
           </a>
         </div>
 
@@ -157,29 +155,36 @@
         </div>
       </div>
 
-      <!-- Hızlı İletişim & Çağrı Kartı -->
-      <div class="hero-quick-card">
-        <div class="quick-card-header">
-          <h2 class="quick-card-title">Acil Çekici Çağır</h2>
-          <p class="quick-card-subtitle">En yakın ekibimiz anında yönlendirilsin</p>
-        </div>
+      <!-- Sağ Taraf: Doğrudan WhatsApp'a Düşen Hızlı Teklif Formu -->
+      <div class="hero-form-card">
+        <h2 class="form-card-title">Hızlı Fiyat Teklifi Al</h2>
+        <p class="form-card-subtitle">Bilgileri doldurun, anında WhatsApp üzerinden net fiyat iletelim:</p>
 
-        <a href="tel:05516756624" class="hero-call-box">
-          <div class="hero-call-label">7/24 ACİL ÇAĞRI HATTI</div>
-          <div class="hero-call-number">0551 675 66 24</div>
-          <small>Tıklayın, hemen operatöre bağlanın</small>
-        </a>
+        <form class="wp-contact-form">
+          <div class="wp-form-group">
+            <label class="wp-form-label">Bulunduğunuz Konum / İlçe *</label>
+            <input type="text" name="from_location" class="wp-form-input" required placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu">
+          </div>
 
-        <a href="#" class="hero-whatsapp-box btn-send-location">
-          <span>📍 Canlı Konumunu Paylaş & Fiyat Al</span>
-        </a>
+          <div class="wp-form-group">
+            <label class="wp-form-label">Bırakılacağı Hedef / Sanayi *</label>
+            <input type="text" name="to_location" class="wp-form-input" required placeholder="Örn: İçmeler Sanayi, Bostancı veya Servis">
+          </div>
 
-        <ul class="quick-features-list">
-          <li>✔ Sabit & Uygun Fiyat</li>
-          <li>✔ Kayar Kasa & Ahtapot</li>
-          <li>✔ Motosiklet & Minibüs</li>
-          <li>✔ Akü Takviye Desteği</li>
-        </ul>
+          <div class="wp-form-group">
+            <label class="wp-form-label">Araç Modeli ve Durumu *</label>
+            <input type="text" name="car_model" class="wp-form-input" required placeholder="Örn: Ford Focus - Marş basmıyor / Kaza yaptı">
+          </div>
+
+          <div class="wp-form-group">
+            <label class="wp-form-label">İletişim Numaranız (İsteğe Bağlı)</label>
+            <input type="tel" name="user_phone" class="wp-form-input" placeholder="05XX XXX XX XX">
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 14px; font-size: 1rem; margin-top: 8px;">
+            🚀 WhatsApp'a Gönder & Fiyat Al
+          </button>
+        </form>
       </div>
     </div>
   </section>
@@ -194,7 +199,6 @@
       </div>
 
       <div class="services-grid">
-        <!-- 1. Oto Kurtarma -->
         <article class="service-card">
           <div class="service-icon-wrap">🚨</div>
           <h3 class="service-title">7/24 Oto Kurtarma</h3>
@@ -207,7 +211,6 @@
           <a href="hizmetler/oto-kurtarma.html" class="service-link">Detaylı Bilgi & Fiyat →</a>
         </article>
 
-        <!-- 2. Oto Çekici -->
         <article class="service-card">
           <div class="service-icon-wrap">🚛</div>
           <h3 class="service-title">Kayar Kasa Oto Çekici</h3>
@@ -220,7 +223,6 @@
           <a href="hizmetler/oto-cekici.html" class="service-link">Detaylı Bilgi & Fiyat →</a>
         </article>
 
-        <!-- 3. Yol Yardım & Akü -->
         <article class="service-card">
           <div class="service-icon-wrap">⚡</div>
           <h3 class="service-title">Akü Takviye & Yol Yardım</h3>
@@ -233,7 +235,6 @@
           <a href="hizmetler/yol-yardim-aku-takviye.html" class="service-link">Detaylı Bilgi & Fiyat →</a>
         </article>
 
-        <!-- 4. Motosiklet Çekici -->
         <article class="service-card">
           <div class="service-icon-wrap">🏍️</div>
           <h3 class="service-title">Motosiklet Taşıma & Çekici</h3>
@@ -246,7 +247,6 @@
           <a href="hizmetler/motosiklet-cekici.html" class="service-link">Detaylı Bilgi & Fiyat →</a>
         </article>
 
-        <!-- 5. Ağır Vasıta & Ticari -->
         <article class="service-card">
           <div class="service-icon-wrap">🚐</div>
           <h3 class="service-title">Hafif Ticari & Minibüs Çekici</h3>
@@ -259,7 +259,6 @@
           <a href="hizmetler/agir-vasita-kurtarma.html" class="service-link">Detaylı Bilgi & Fiyat →</a>
         </article>
 
-        <!-- 6. Kaza Kurtarma & Vinç -->
         <article class="service-card">
           <div class="service-icon-wrap">🏗️</div>
           <h3 class="service-title">Kaza Kurtarma & Vinç Hizmeti</h3>
@@ -275,7 +274,7 @@
     </div>
   </section>
 
-  <!-- 24 Bölge Matrisi (Local SEO) -->
+  <!-- 24 Bölge Matrisi -->
   <section class="section section-dark" id="bolgeler">
     <div class="container">
       <div class="section-header">
@@ -480,7 +479,7 @@
     </div>
   </section>
 
-  <!-- Fotoğraf Galeri Alanı (Kullanıcının Fotoğrafları İçin Hazır Alanlar) -->
+  <!-- Fotoğraf Galeri Alanı -->
   <section class="section" id="galeri">
     <div class="container">
       <div class="section-header">
@@ -490,7 +489,6 @@
       </div>
 
       <div class="photo-gallery-grid">
-        <!-- Fotoğraf 1 -->
         <div class="photo-slot-card">
           <div class="photo-box">
             <span class="photo-badge">Kayar Kasa Kurtarıcı</span>
@@ -506,7 +504,6 @@
           </div>
         </div>
 
-        <!-- Fotoğraf 2 -->
         <div class="photo-slot-card">
           <div class="photo-box">
             <span class="photo-badge">Otoyol Müdahale</span>
@@ -522,7 +519,6 @@
           </div>
         </div>
 
-        <!-- Fotoğraf 3 -->
         <div class="photo-slot-card">
           <div class="photo-box">
             <span class="photo-badge">Aparatlı Çekim</span>
@@ -538,7 +534,6 @@
           </div>
         </div>
 
-        <!-- Fotoğraf 4 -->
         <div class="photo-slot-card">
           <div class="photo-box">
             <span class="photo-badge">Motosiklet Taşıma</span>
@@ -554,9 +549,6 @@
           </div>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 25px;">
-        <small style="color: var(--text-muted);">📸 <em>Not: Kendi saha fotoğraflarınızı `images/` klasörüne ekleyerek bu alanları doğrudan güncelleyebilirsiniz.</em></small>
-      </div>
     </div>
   </section>
 
@@ -569,7 +561,6 @@
         <p class="section-desc">Google Haritalar üzerinden hizmet alan gerçek araç sahiplerinin tarafsız değerlendirmeleri ve deneyimleri.</p>
       </div>
 
-      <!-- Google Puan Özeti -->
       <div class="google-rating-summary">
         <div class="google-badge-logo">
           <svg class="google-g-icon" viewBox="0 0 48 48">
@@ -592,10 +583,7 @@
         </div>
       </div>
 
-      <!-- Yorum Kartları -->
       <div class="reviews-grid">
-
-        <!-- Yorum 1 -->
         <div class="review-card">
           <div class="review-header">
             <div class="reviewer-avatar">M</div>
@@ -615,7 +603,6 @@
           </div>
         </div>
 
-        <!-- Yorum 2 -->
         <div class="review-card">
           <div class="review-header">
             <div class="reviewer-avatar">B</div>
@@ -631,7 +618,6 @@
           </p>
         </div>
 
-        <!-- Yorum 3 -->
         <div class="review-card">
           <div class="review-header">
             <div class="reviewer-avatar">C</div>
@@ -651,87 +637,6 @@
           </div>
         </div>
 
-        <!-- Yorum 4 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">Y</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">Yusuf Sami Yüksel</span>
-              <span class="review-meta">2 yorum · 5 gün önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Tuzla - Turist & Tamirci Desteği</span>
-          <p class="review-body">
-            "Merhaba. İran'dan Türkiye tatile geldim. Aracımız Tuzla'da arıza yaptı, XXX OTO ÇEKİCİ'ye ulaştım çok güler yüzlü bir insan çok yardımcı oldu tamirci buldu bize çok şükran ederim. İyi işler diliyorum."
-          </p>
-          <div class="owner-reply-box">
-            <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Merhabalar, Tuzla bölgesinde her daim aktif ve hizmetinizdeyiz. Güzel yorumunuz için çok teşekkür ederim, İran'a sevgiler..."
-          </div>
-        </div>
-
-        <!-- Yorum 5 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">M</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">Murat Yeşilbaş</span>
-              <span class="review-meta">1 yorum · 1 hafta önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Pendik Çamlık - Sabaha Karşı 04:00</span>
-          <p class="review-body">
-            "Dün gece sabaha karşı saat 4:00’te otomobilimle Pendik Çamlık Mahallesi’nde kaza yaptım, aracım yürümüyordu. XXX Oto Kurtarma yol yardımı aradım, sağ olsun gecenin o saatinde hemen geldi aparatla çekim yaptı, aracıma zarar vermeden çekim işlemini yaptı çok memnun kaldık."
-          </p>
-          <div class="owner-reply-box">
-            <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Murat Bey öncelikle geçmiş olsun tekrardan. Güzel yorumunuz için teşekkür ederim. 7/24 her zaman hizmetinizdeyiz..."
-          </div>
-        </div>
-
-        <!-- Yorum 6 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">N</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">Nevzat İraç</span>
-              <span class="review-meta">5 yorum · 25 fotoğraf · 1 hafta önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Tepeören / İstanbul Park</span>
-          <p class="review-body">
-            "Kaliteli hizmet iş kalitesi çok iyi güvenilir kesinlikle herkese tavsiye ederim. Fiyat değerlendirmesi mükemmel."
-          </p>
-          <div class="owner-reply-box">
-            <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Merhaba Nevzat Bey, Tuzla Tepeören İstanbul Park mevkisinde aparatlı çekim talebinize istinaden iletişim sağladık. Hizmetimizden memnun kalmanıza sevindim."
-          </div>
-        </div>
-
-        <!-- Yorum 7 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">İ</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">İbrahim Erbil</span>
-              <span class="review-meta">1 yorum · 1 hafta önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Tuzla İçmeler - Trafik İçi Kurtarma</span>
-          <p class="review-body">
-            "Tuzla İçmeler mevkisinde aracım trafiğin ortasında arıza yaptı. Tuzla oto çekici olarak XXX OTO ÇEKİCİ'ye ulaştım. Çok hızlı geldi ve beni en yakın sanayiye götürdü. İlgi ve alakası çok iyi biri kendisine teşekkür ediyorum."
-          </p>
-          <div class="owner-reply-box">
-            <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "İbrahim Bey geçmiş olsun. İhtiyacınız olduğu her an 7/24 hizmetinizdeyiz."
-          </div>
-        </div>
-
-        <!-- Yorum 8 -->
         <div class="review-card">
           <div class="review-header">
             <div class="reviewer-avatar">E</div>
@@ -747,47 +652,29 @@
           </p>
           <div class="owner-reply-box">
             <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Merhaba Emel Hanım, güzel yorumunuz için çok teşekkür ederim. Pendik Kurtköy'de yanınızda olmaktan mutluluk duyduk. Tekrar çok geçmiş olsun."
+            "Merhaba Emel Hanım, güzel yorumunuz için çok teşekkür ederim. Pendik Kurtköy'de yanınızda olmaktan mutluluk duyduk."
           </div>
         </div>
 
-        <!-- Yorum 9 -->
         <div class="review-card">
           <div class="review-header">
-            <div class="reviewer-avatar">K</div>
+            <div class="reviewer-avatar">M</div>
             <div class="reviewer-info">
-              <span class="reviewer-name">Kerem Zahid Yüksel</span>
-              <span class="review-meta">1 yorum · 2 hafta önce</span>
+              <span class="reviewer-name">Murat Yeşilbaş</span>
+              <span class="review-meta">1 yorum · 1 hafta önce</span>
             </div>
           </div>
           <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Kuzey Marmara Otoyolu - Yabancı Plaka</span>
+          <span class="review-tag">📍 Pendik Çamlık - Sabaha Karşı 04:00</span>
           <p class="review-body">
-            "İstanbul Tuzla Kuzey Marmara Otoyolunda kaldım, Fransa'dan gelmiştik. Çok yardımcı oldu bize, kendisi çok klas bir beyefendi. Çok hızlı ve işini de iyi yaptığı için teşekkürler."
+            "Dün gece sabaha karşı saat 4:00’te otomobilimle Pendik Çamlık Mahallesi’nde kaza yaptım, aracım yürümüyordu. XXX Oto Kurtarma yol yardımı aradım, sağ olsun gecenin o saatinde hemen geldi aparatla çekim yaptı."
           </p>
           <div class="owner-reply-box">
             <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Güzel yorumunuz için teşekkür ederim. Memnun kaldığınız için mutlu olduk. Her zaman yanınızdayız."
+            "Murat Bey öncelikle geçmiş olsun tekrardan. 7/24 her zaman hizmetinizdeyiz..."
           </div>
         </div>
 
-        <!-- Yorum 10 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">H</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">Hakan Sırtıkara</span>
-              <span class="review-meta">2 yorum · 2 hafta önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Sabiha Gökçen - Sultangazi Sevkiyatı</span>
-          <p class="review-body">
-            "Pendik Kurtköy Sabiha Gökçen Havalimanı'nda aracım arızalandı. XXX oto çekiciye ulaştım, güvenli şekilde Sultangazi'ye bıraktı. İlgisi için teşekkür ederim."
-          </p>
-        </div>
-
-        <!-- Yorum 11 -->
         <div class="review-card">
           <div class="review-header">
             <div class="reviewer-avatar">Y</div>
@@ -799,129 +686,8 @@
           <div class="review-stars">★★★★★</div>
           <span class="review-tag">📍 Sevindikli Kuzey Marmara Tesisi</span>
           <p class="review-body">
-            "Bugün Sevindikli Kuzey Marmara tesisinde aracım arızalandı. XXX oto çekiciye ulaştım, hızlı bir şekilde bana ulaştılar. Gerekli müdahale ve çekim işlerini tecrübeli bir şekilde başardılar, aracımı ustaya bıraktıktan sonra beni de Tuzla'ya evime bıraktılar."
+            "Bugün Sevindikli Kuzey Marmara tesisinde aracım arızalandı. XXX oto çekiciye ulaştım, hızlı bir şekilde bana ulaştılar. Gerekli müdahale ve çekim işlerini tecrübeli bir şekilde başardılar."
           </p>
-        </div>
-
-        <!-- Yorum 12 -->
-        <div class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar">K</div>
-            <div class="reviewer-info">
-              <span class="reviewer-name">Kadir Çetin</span>
-              <span class="review-meta">1 yorum · 1 ay önce</span>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag">📍 Tuzla Akfırat - Çamura Saplanma</span>
-          <p class="review-body">
-            "Dün gece Tuzla Akfırat tarafında çamura saplandık. Tuzla oto kurtarıcı olarak ulaştık. Aracımıza zarar vermeden müdahale etti. Minnettarım."
-          </p>
-          <div class="owner-reply-box">
-            <div class="owner-reply-header">💬 XXX İşletme Yanıtı:</div>
-            "Çok teşekkür ederim. Tuzla bölgesindeki müşterilerimize hızlı ve güvenli oto çekici sunmak ana hedefimizdir."
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Neden Biz / Güvenilirlik -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Neden Bizi Seçmelisiniz?</span>
-        <h2 class="section-title">Yolda Kalmanın Stresini Ortadan Kaldırıyoruz</h2>
-        <p class="section-desc">Yılların saha tecrübesi, modern ekipmanlar ve esnaf ahlakıyla yolda kalan her sürücünün yanındayız.</p>
-      </div>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-number">01</div>
-          <h3 class="why-title">15 Dakikada Hızlı Ulaşım</h3>
-          <p class="why-text">Tuzla, Pendik, Kurtköy ve otoyol bağlantı noktalarında sürekli hazır bekleyen araçlarımızla bekleme süresini minimuma indiriyoruz.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-number">02</div>
-          <h3 class="why-title">Sıfır Hasar & Kaskolu Taşıma</h3>
-          <p class="why-text">Aracınız platforma yüklenirken ve taşınırken tam kapsamlı taşıma sigortası altındadır. Tampon, marşpiyel ve jantlar özel aparatlarla korunur.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-number">03</div>
-          <h3 class="why-title">Sürprizsiz Şeffaf Fiyat</h3>
-          <p class="why-text">Telefon veya WhatsApp üzerinden anlaştığımız fiyat geçerlidir. Gece tarifesi veya gizli ek ücretler olmadan dürüst fiyatlandırma yapılır.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-number">04</div>
-          <h3 class="why-title">Tamirci & Sanayi Desteği</h3>
-          <p class="why-text">Aracınızı sadece çekmekle kalmıyor, gecenin bir yarısı açık oto tamircisi, elektrikçi veya lastikçi bulmanızda esnaf çevremizle yardımcı oluyoruz.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sıkça Sorulan Sorular (FAQ) -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Merak Edilenler</span>
-        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
-        <p class="section-desc">Oto çekici ve kurtarma hizmetlerimizle ilgili en çok sorulan konular ve yanıtları.</p>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-item active">
-          <button class="faq-question">
-            <span>Çekici çağırdığımda ne kadar sürede yanımda olur?</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            Tuzla, Pendik, Sabiha Gökçen ve E-5 güzergahlarında nöbetçi çekicilerimiz ortalama <strong>10 ila 15 dakika</strong> içerisinde konumunuza ulaşmaktadır. Otoyol veya uzak mevkilerde trafik yoğunluğuna göre tam süre çağrı esnasında bildirilir.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Çekici fiyatı neye göre hesaplanır?</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            Çekici ücretleri; aracın bulunduğu yer ile götürüleceği mesafe (kilometre), araç tipi (binek, SUV, hafif ticari, motosiklet) ve arızanın durumuna (yürür vaziyette mi, kaza yapmış mı, aparat gerekir mi) göre en uygun piyasa koşullarında şeffaf olarak belirlenir.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Otomatik vitesli ve alçak araçlar için uygun çekiciniz var mı?</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            Evet. Filomuzdaki kayar kasa kurtarıcılar ve özel tekerlek aparatları sayesinde otomatik vitesli araçlar şanzımana zarar vermeden, yere yakın spor otomobiller ise tampon sürtmesi yaşanmadan güvenle yüklenir.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Akü bittiğinde aracı çekmek zorunda mıyız?</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            Hayır. Eğer aracınız sadece akü bitmesi sebebiyle marş basmıyorsa, yerinde profesyonel akü takviye cihazlarımızla aracınızı çalıştırıp gereksiz çekici masrafından kurtarıyoruz.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Kuzey Marmara veya TEM Otoyolunda kaldığımda ne yapmalıyım?</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            Öncelikle dörtlü flaşörlerinizi yakın, reflektörünüzü aracın arkasına yerleştirin ve güvenli bariyer arkasına geçin. Ardından <strong>0551 675 66 24</strong> numaramızı arayarak veya WhatsApp'tan canlı konum paylaşarak nöbetçi otoban çekicimizi çağırabilirsiniz.
-          </div>
         </div>
       </div>
     </div>
@@ -937,9 +703,8 @@
       </div>
 
       <div class="map-contact-grid">
-        <!-- Kullanıcının Google Harita Embed Kodu -->
         <div class="map-embed-box">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192932.00742247014!2d29.19615716441853!3d40.92533510433805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47695f437a0a2ddd%3A0x7a4a444c98c31d48!2zQkFZS0FQVEFOIE9UTyDDh0VLxLBDxLA!5e0!3m2!1str!2str!4v1789306816365!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="XXX Oto Çekici Google Harita Konumu"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192932.00742247014!2d29.19615716441853!3d40.92533510433805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47695f437a0a2ddd%3A0x7a4a444c98c31d48!2zQkFZS0FQVEFOIE9UTyDDh0VLxLBDxLA!5e0!3m2!1str!2str!4v1789306816365!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="XXX Oto Çekici Harita"></iframe>
         </div>
 
         <div class="contact-details-box">
@@ -967,7 +732,7 @@
             <div class="contact-item-icon">📍</div>
             <div>
               <div class="contact-item-title">Hizmet Bölgesi</div>
-              <div class="contact-item-value" style="font-size: 1.05rem;">
+              <div class="contact-item-value" style="font-size: 1rem;">
                 Tuzla, Pendik, Gebze, Çayırova, Darıca, Sabiha Gökçen, TEM & Kuzey Marmara Otoyolu
               </div>
             </div>
@@ -977,22 +742,17 @@
             <div class="contact-item-icon">⏰</div>
             <div>
               <div class="contact-item-title">Çalışma Saatleri</div>
-              <div class="contact-item-value" style="font-size: 1.05rem; color: var(--green-call);">
+              <div class="contact-item-value" style="font-size: 1rem; color: var(--green-call);">
                 7 Gün 24 Saat Kesintisiz Açık
               </div>
             </div>
-          </div>
-
-          <div style="margin-top: 15px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="tel:05516756624" class="btn btn-call" style="flex: 1;">📞 Şimdi Ara</a>
-            <a href="#" class="btn btn-whatsapp btn-send-location" style="flex: 1;">💬 WhatsApp</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Tam 4 Sütunlu Zengin Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -1039,8 +799,8 @@
           <ul class="footer-links">
             <li><a href="iletisim.html">İletişim & Harita</a></li>
             <li><a href="blog/index.html">Sürücü Rehberi & Blog</a></li>
-            <li><a href="#yorumlar">Müşteri Yorumları</a></li>
             <li><a href="#galeri">Filomuz & Fotoğraflar</a></li>
+            <li><a href="tel:05516756624">7/24 Acil İhbar Hattı</a></li>
           </ul>
           <div style="margin-top: 20px; font-size: 0.85rem; color: #94a3b8;">
             Tuzla, Pendik, Gebze & Tüm Çevre Yolları Nöbetçi Çekici Noktası
@@ -1055,15 +815,18 @@
     </div>
   </footer>
 
-  <!-- Mobilde Altta Sabit Kalan Acil Çağrı Çubuğu -->
-  <div class="mobile-sticky-bar" aria-label="Mobil Acil Çağrı">
-    <a href="tel:05516756624" class="sticky-btn-call" id="mobile-sticky-call">
-      📞 Hemen Ara
+  <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları -->
+  <aside class="floating-actions-wrap" aria-label="Acil İletişim Butonları">
+    <a href="tel:05516756624" class="floating-btn floating-call" id="float-call-btn" title="0551 675 66 24">
+      <span class="floating-btn-icon">📞</span>
+      <span>0551 675 66 24</span>
+      <span class="floating-beacon"></span>
     </a>
-    <a href="#" class="sticky-btn-whatsapp btn-send-location" id="mobile-sticky-whatsapp">
-      💬 WhatsApp Konum
+    <a href="#" class="floating-btn floating-whatsapp btn-send-location" id="float-wp-btn" title="WhatsApp Konum Gönder">
+      <span class="floating-btn-icon">💬</span>
+      <span>WhatsApp Konum Gönder</span>
     </a>
-  </div>
+  </aside>
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
