@@ -326,14 +326,59 @@ document.addEventListener('DOMContentLoaded', () => {
         const filterVal = tab.getAttribute('data-gallery-filter');
 
         galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filterVal === 'all' || category === filterVal) {
+          const category = item.getAttribute('data-category') || '';
+          if (filterVal === 'all' || category === filterVal || category.split(' ').includes(filterVal)) {
             item.style.display = 'flex';
           } else {
             item.style.display = 'none';
           }
         });
       });
+    });
+  }
+
+  // 10. Galeri Lightbox Modal
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (lightbox) {
+    const lightboxImg = lightbox.querySelector('#lightbox-img');
+    const lightboxTitle = lightbox.querySelector('#lightbox-title');
+    const lightboxDesc = lightbox.querySelector('#lightbox-desc');
+    const closeBtn = lightbox.querySelector('.lightbox-close-btn');
+
+    document.querySelectorAll('.photo-slot-card[data-lightbox-src]').forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-lightbox-src');
+        const title = card.getAttribute('data-lightbox-title') || '';
+        const desc = card.getAttribute('data-lightbox-desc') || '';
+
+        if (lightboxImg) lightboxImg.src = src;
+        if (lightboxTitle) lightboxTitle.textContent = title;
+        if (lightboxDesc) lightboxDesc.textContent = desc;
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
     });
   }
 });
