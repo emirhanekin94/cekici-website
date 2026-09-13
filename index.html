@@ -66,14 +66,8 @@
         <span class="badge-247"><span class="pulse-dot"></span> 7/24 Kesintisiz Hizmet</span>
         <span>Tuzla, Pendik, Gebze & Tüm Çevre Otoyollarda Nöbetçi Çekici Noktaları</span>
       </div>
-      <div class="top-bar-right">
-        <a href="tel:05516756624" class="top-phone-link">
-          <span class="svg-icon" style="width: 16px; height: 16px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
-          0551 675 66 24
-        </a>
       </div>
     </div>
-  </div>
 
   <!-- Ana Gezinme Menüsü (Obsidian Luxury Header) -->
   <header class="site-header">
@@ -94,18 +88,18 @@
           <li><a href="hakkimizda.html">Hakkımızda</a></li>
           <li><a href="hizmetler/index.html">Hizmetlerimiz</a></li>
           <li><a href="bolgeler/index.html">Bölgelerimiz</a></li>
-          <li><a href="#galeri">Foto Galeri</a></li>
-          <li><a href="blog/index.html">Rehber / Blog</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="tel:05516756624" class="btn btn-call" id="nav-call-btn">
-          <span class="svg-icon" style="width: 18px; height: 18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
-          <span>0551 675 66 24</span>
-        </a>
-        <button class="menu-toggle-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false">☰</button>
+        <button class="menu-toggle-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -163,12 +157,299 @@
         <p class="form-card-subtitle">Bilgileri doldurun, anında WhatsApp üzerinden net fiyat iletelim:</p>
         
         <form class="wp-contact-form" id="hero-quote-form">
-          <div class="wp-form-group">
+          <div class="wp-form-group custom-region-picker" id="region-picker">
             <label class="wp-form-label">Bulunduğunuz Bölge / Lokasyon *</label>
-            <select name="region_select" class="wp-form-select" required>
-              <option value="" disabled selected>Bölge Seçiniz</option>
-              <option value="Tuzla">Tuzla Çekici</option><option value="Sabiha Gökçen">Sabiha Gökçen Çekici</option><option value="Kuzey Marmara">Kuzey Marmara Çekici</option><option value="TEM Otoyolu">TEM Otoyolu Çekici</option><option value="D-100 E-5">D-100 E-5 Çekici</option><option value="Akfırat">Akfırat Çekici</option><option value="Tepeören">Tepeören Çekici</option><option value="Orhanlı">Orhanlı Çekici</option><option value="Aydınlı">Aydınlı Çekici</option><option value="İçmeler">İçmeler Çekici</option><option value="Aydıntepe">Aydıntepe Çekici</option><option value="Şifa Mahallesi">Şifa Mahallesi Çekici</option><option value="Esenyalı">Esenyalı Çekici</option><option value="Güzelyalı">Güzelyalı Çekici</option><option value="Kurtköy">Kurtköy Çekici</option><option value="Sevindikli">Sevindikli Çekici</option><option value="Tuzla Marina">Tuzla Marina Çekici</option><option value="İstanbul Park">İstanbul Park Çekici</option><option value="Gebze">Gebze Çekici</option><option value="Çayırova">Çayırova Çekici</option><option value="Eskihisar">Eskihisar Çekici</option><option value="Bayramoğlu">Bayramoğlu Çekici</option><option value="Darıca">Darıca Çekici</option><option value="Pendik">Pendik Çekici</option>
-            </select>
+            <div class="region-picker-trigger" id="region-picker-trigger" tabindex="0">
+              <div class="picker-trigger-content">
+                <svg class="picker-icon-pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                <span class="picker-selected-text" id="picker-selected-text">Bölge Seçiniz (24 Nokta)</span>
+              </div>
+              <svg class="picker-arrow-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <input type="hidden" name="region_select" id="hidden-region-input" value="Tuzla" required>
+
+            <!-- Açılır Lüks Popover Panel -->
+            <div class="region-picker-popover" id="region-picker-popover">
+              <div class="picker-search-wrap">
+                <svg class="picker-search-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" class="picker-search-input" id="picker-search-input" placeholder="Bölge veya mahalle ara... (örn: Aydınlı, Kurtköy, TEM)">
+              </div>
+
+              <div class="picker-filter-tabs">
+                <button type="button" class="picker-tab-btn active" data-filter="all">Tümü (24)</button>
+                <button type="button" class="picker-tab-btn" data-filter="tuzla">Tuzla</button>
+                <button type="button" class="picker-tab-btn" data-filter="pendik">Pendik</button>
+                <button type="button" class="picker-tab-btn" data-filter="otoyol">Otoyollar</button>
+                <button type="button" class="picker-tab-btn" data-filter="kocaeli">Gebze</button>
+              </div>
+
+              <div class="picker-items-scroll" id="picker-items-scroll">
+
+            <div class="picker-item-row" data-name="Tuzla" data-category="tuzla" data-sub="İçmeler, Aydınlı, Marina, Tepeören, E-5" data-eta="10-15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Tuzla Çekici
+                </div>
+                <div class="picker-item-sub">İçmeler, Aydınlı, Marina, Tepeören, E-5</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10-15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Sabiha Gökçen" data-category="pendik otoyol" data-sub="Dış Hatlar, İç Hatlar, Kargo Terminali" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Sabiha Gökçen Çekici
+                </div>
+                <div class="picker-item-sub">Dış Hatlar, İç Hatlar, Kargo Terminali</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Kuzey Marmara" data-category="otoyol" data-sub="Kurnaköy Gişeleri, Sevindikli, Dinlenme Tesisleri" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Kuzey Marmara Çekici
+                </div>
+                <div class="picker-item-sub">Kurnaköy Gişeleri, Sevindikli, Dinlenme Tesisleri</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="TEM Otoyolu" data-category="otoyol" data-sub="Kurtköy Gişeler, Orhanlı Viyadüğü, Şekerpınar" data-eta="12-15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  TEM Otoyolu Çekici
+                </div>
+                <div class="picker-item-sub">Kurtköy Gişeler, Orhanlı Viyadüğü, Şekerpınar</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12-15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="D-100 E-5" data-category="otoyol tuzla" data-sub="Tuzla Köprüsü, İçmeler, Tersaneler, Yan Yol" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  D-100 E-5 Çekici
+                </div>
+                <div class="picker-item-sub">Tuzla Köprüsü, İçmeler, Tersaneler, Yan Yol</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Akfırat" data-category="tuzla" data-sub="Formula 1 Çevresi, Villalar, Tepeören Yolu" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Akfırat Çekici
+                </div>
+                <div class="picker-item-sub">Formula 1 Çevresi, Villalar, Tepeören Yolu</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Tepeören" data-category="tuzla" data-sub="Organize Sanayi, Lojistik Depoları, Göçbeyli" data-eta="12 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Tepeören Çekici
+                </div>
+                <div class="picker-item-sub">Organize Sanayi, Lojistik Depoları, Göçbeyli</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Orhanlı" data-category="tuzla" data-sub="Mermerciler Sanayi, Aykosan, Deri OSB" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Orhanlı Çekici
+                </div>
+                <div class="picker-item-sub">Mermerciler Sanayi, Aykosan, Deri OSB</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Aydınlı" data-category="tuzla" data-sub="KOSB, Birlik OSB, Aydınlı Konutları" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Aydınlı Çekici
+                </div>
+                <div class="picker-item-sub">KOSB, Birlik OSB, Aydınlı Konutları</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="İçmeler" data-category="tuzla" data-sub="E-5 Köprü Üstü, İstasyon, İçmeler Sanayi" data-eta="8-10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  İçmeler Çekici
+                </div>
+                <div class="picker-item-sub">E-5 Köprü Üstü, İstasyon, İçmeler Sanayi</div>
+              </div>
+              <span class="picker-item-eta">⚡ 8-10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Aydıntepe" data-category="tuzla" data-sub="Tuzla Devlet Hastanesi Civarı, Sahil Yolu" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Aydıntepe Çekici
+                </div>
+                <div class="picker-item-sub">Tuzla Devlet Hastanesi Civarı, Sahil Yolu</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Şifa Mahallesi" data-category="tuzla" data-sub="E-5 Sınırı, Şekerpınar Girişi, Emiroğlu Cad." data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Şifa Mahallesi Çekici
+                </div>
+                <div class="picker-item-sub">E-5 Sınırı, Şekerpınar Girişi, Emiroğlu Cad.</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Esenyalı" data-category="pendik" data-sub="Fatih Mahallesi, Necmettin Erbakan Cad." data-eta="12 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Esenyalı Çekici
+                </div>
+                <div class="picker-item-sub">Fatih Mahallesi, Necmettin Erbakan Cad.</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Güzelyalı" data-category="pendik" data-sub="Tren İstasyonu, Sahil Bulvarı, Tersaneler" data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Güzelyalı Çekici
+                </div>
+                <div class="picker-item-sub">Tren İstasyonu, Sahil Bulvarı, Tersaneler</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Kurtköy" data-category="pendik" data-sub="Viaport AVM, Yenişehir, Atlantis, Havaalanı" data-eta="12 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Kurtköy Çekici
+                </div>
+                <div class="picker-item-sub">Viaport AVM, Yenişehir, Atlantis, Havaalanı</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Sevindikli" data-category="otoyol kocaeli" data-sub="Kuzey Marmara Dinlenme Tesisleri, Kocaeli Etabı" data-eta="15-20 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Sevindikli Çekici
+                </div>
+                <div class="picker-item-sub">Kuzey Marmara Dinlenme Tesisleri, Kocaeli Etabı</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15-20 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Tuzla Marina" data-category="tuzla" data-sub="Marina Sahil, Balıkçılar Çarşısı, Postane Mah." data-eta="10 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Tuzla Marina Çekici
+                </div>
+                <div class="picker-item-sub">Marina Sahil, Balıkçılar Çarşısı, Postane Mah.</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="İstanbul Park" data-category="tuzla otoyol" data-sub="Intercity Pist Çevresi, Akfırat Yolu, F1 Bulvarı" data-eta="12 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  İstanbul Park Çekici
+                </div>
+                <div class="picker-item-sub">Intercity Pist Çevresi, Akfırat Yolu, F1 Bulvarı</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Gebze" data-category="kocaeli" data-sub="GOSB, Otogar, Tatlıkuyu, D-100 Gebze Geçişi" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Gebze Çekici
+                </div>
+                <div class="picker-item-sub">GOSB, Otogar, Tatlıkuyu, D-100 Gebze Geçişi</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Çayırova" data-category="kocaeli" data-sub="TOSB Otomotiv Yan Sanayi, Şekerpınar" data-eta="12 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Çayırova Çekici
+                </div>
+                <div class="picker-item-sub">TOSB Otomotiv Yan Sanayi, Şekerpınar</div>
+              </div>
+              <span class="picker-item-eta">⚡ 12 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Eskihisar" data-category="kocaeli" data-sub="İDO Feribot Kuyruğu, Kale Çevresi, Sahil Yolu" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Eskihisar Çekici
+                </div>
+                <div class="picker-item-sub">İDO Feribot Kuyruğu, Kale Çevresi, Sahil Yolu</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Bayramoğlu" data-category="kocaeli" data-sub="Ada Girişi, Balyanoz Koyu, Plajlar Bölgesi" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Bayramoğlu Çekici
+                </div>
+                <div class="picker-item-sub">Ada Girişi, Balyanoz Koyu, Plajlar Bölgesi</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Darıca" data-category="kocaeli" data-sub="Millet Bahçesi, İstasyon, Farabi Hastanesi" data-eta="15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Darıca Çekici
+                </div>
+                <div class="picker-item-sub">Millet Bahçesi, İstasyon, Farabi Hastanesi</div>
+              </div>
+              <span class="picker-item-eta">⚡ 15 Dk</span>
+            </div>
+
+            <div class="picker-item-row" data-name="Pendik" data-category="pendik" data-sub="Pendik Marina, E-5 Köprüsü, Çamlık, Kaynarca" data-eta="10-15 Dk">
+              <div>
+                <div class="picker-item-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  Pendik Çekici
+                </div>
+                <div class="picker-item-sub">Pendik Marina, E-5 Köprüsü, Çamlık, Kaynarca</div>
+              </div>
+              <span class="picker-item-eta">⚡ 10-15 Dk</span>
+            </div>
+              </div>
+            </div>
           </div>
 
           <div class="wp-form-group">

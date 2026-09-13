@@ -1,31 +1,41 @@
 /**
- * XXX OTO ÇEKİCİ & KURTARMA - GELİŞMİŞ ETKİLEŞİM, WHATSAPP FORMU VE TÜMÜNÜ GÖSTER MANTIĞI
+ * XXX OTO ÇEKİCİ & KURTARMA - GELİŞMİŞ ETKİLEŞİM, ÖZEL BÖLGE SEÇİCİ VE WHATSAPP FORMU
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const PHONE_NUMBER = '905516756624';
 
-  // 1. Mobil Menü Aç/Kapat
+  // 1. Mobil Menü Aç/Kapat (3 Çizgi Animasyonlu ve Kusursuz Çalışır)
   const menuBtn = document.querySelector('.menu-toggle-btn');
   const mainNav = document.querySelector('.main-nav');
 
   if (menuBtn && mainNav) {
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = menuBtn.classList.toggle('active');
       mainNav.classList.toggle('active');
-      const isOpen = mainNav.classList.contains('active');
-      menuBtn.setAttribute('aria-expanded', isOpen);
-      menuBtn.innerHTML = isOpen ? '✕' : '☰';
+      menuBtn.setAttribute('aria-expanded', isActive);
+      document.body.style.overflow = isActive ? 'hidden' : '';
     });
 
     // Menü içindeki linke tıklandığında menüyü kapat
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
         mainNav.classList.remove('active');
-        if (menuBtn) {
-          menuBtn.innerHTML = '☰';
-          menuBtn.setAttribute('aria-expanded', false);
-        }
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       });
+    });
+
+    // Dışarı tıklandığında menüyü kapat
+    document.addEventListener('click', (e) => {
+      if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        mainNav.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
     });
   }
 
@@ -81,13 +91,104 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Gelişmiş WhatsApp Teklif Formu Gönderme (Seçmeli Dropdown Destekli)
+  // 4. Özel Gelişmiş Bölge Seçici (Custom Luxury Region Picker)
+  const regionPicker = document.getElementById('region-picker');
+  if (regionPicker) {
+    const trigger = document.getElementById('region-picker-trigger');
+    const popover = document.getElementById('region-picker-popover');
+    const selectedText = document.getElementById('picker-selected-text');
+    const hiddenInput = document.getElementById('hidden-region-input');
+    const searchInput = document.getElementById('picker-search-input');
+    const filterTabs = regionPicker.querySelectorAll('.picker-tab-btn');
+    const items = regionPicker.querySelectorAll('.picker-item-row');
+
+    if (trigger && popover) {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = popover.classList.contains('open');
+        if (isOpen) {
+          popover.classList.remove('open');
+          trigger.classList.remove('active');
+        } else {
+          popover.classList.add('open');
+          trigger.classList.add('active');
+          if (searchInput) {
+            setTimeout(() => searchInput.focus(), 60);
+          }
+        }
+      });
+
+      // Arama filtresi
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          items.forEach(item => {
+            const name = (item.getAttribute('data-name') || '').toLowerCase();
+            const sub = (item.getAttribute('data-sub') || '').toLowerCase();
+            if (name.includes(query) || sub.includes(query)) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      }
+
+      // Kategori sekmeleri
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation();
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.getAttribute('data-filter');
+
+          items.forEach(item => {
+            const cat = item.getAttribute('data-category') || '';
+            if (filter === 'all' || cat.includes(filter)) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Bölge seçimi
+      items.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const regionName = item.getAttribute('data-name');
+          const regionEta = item.getAttribute('data-eta');
+
+          if (hiddenInput) hiddenInput.value = regionName;
+          if (selectedText) {
+            selectedText.innerHTML = `<span>📍 ${regionName} Çekici (${regionEta})</span>`;
+          }
+
+          items.forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+
+          popover.classList.remove('open');
+          trigger.classList.remove('active');
+        });
+      });
+
+      // Dışarı tıklama ile popover'ı kapat
+      document.addEventListener('click', (e) => {
+        if (!regionPicker.contains(e.target)) {
+          popover.classList.remove('open');
+          trigger.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  // 5. Gelişmiş WhatsApp Teklif Formu Gönderme (Seçmeli Dropdown Destekli)
   const wpForms = document.querySelectorAll('.wp-contact-form');
   wpForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      // Select veya text alanları al
       const regionSelect = form.querySelector('[name="region_select"]');
       const fromInput = form.querySelector('[name="from_location"]');
       const vehicleSelect = form.querySelector('[name="vehicle_type_select"]');
@@ -124,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Bölge Kartları "Tümünü Göster" Mekanizması (Mobilde 4, Masaüstünde 12)
+  // 6. Bölge Kartları "Tümünü Göster" Mekanizması (Mobilde 4, Masaüstünde 12)
   const regionCards = document.querySelectorAll('#regions-container .region-card-luxury');
   const showMoreRegionsBtn = document.getElementById('btn-toggle-all-regions');
 
@@ -132,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.innerWidth <= 768;
     const initialLimit = isMobile ? 4 : 12;
 
-    // İlk sınırın üzerindeki kartları gizle
     regionCards.forEach((card, index) => {
       if (index >= initialLimit) {
         card.classList.add('is-hidden-initially');
@@ -158,39 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Müşteri Yorumları "Tümünü Göster" Mekanizması (Mobilde 3, Masaüstünde 6)
-  const reviewCards = document.querySelectorAll('#reviews-container .review-card');
-  const showMoreReviewsBtn = document.getElementById('btn-toggle-all-reviews');
-
-  if (reviewCards.length > 0 && showMoreReviewsBtn) {
-    const isMobile = window.innerWidth <= 768;
-    const initialReviewLimit = isMobile ? 3 : 6;
-
-    reviewCards.forEach((card, index) => {
-      if (index >= initialReviewLimit) {
-        card.classList.add('is-hidden-initially');
-      }
-    });
-
-    let reviewsExpanded = false;
-    showMoreReviewsBtn.addEventListener('click', () => {
-      reviewsExpanded = !reviewsExpanded;
-      reviewCards.forEach((card, index) => {
-        if (index >= initialReviewLimit) {
-          if (reviewsExpanded) {
-            card.classList.remove('is-hidden-initially');
-          } else {
-            card.classList.add('is-hidden-initially');
-          }
-        }
-      });
-
-      showMoreReviewsBtn.innerHTML = reviewsExpanded 
-        ? `<span>Daha Az Yorum Göster ▲</span>` 
-        : `<span>Tüm Müşteri Yorumlarını Göster (${reviewCards.length} Gerçek Yorum) ▼</span>`;
-    });
-  }
-
   // 7. Bölge Filtreleme Sekmeleri
   const filterTabs = document.querySelectorAll('.filter-tab-btn');
   if (filterTabs.length > 0 && regionCards.length > 0) {
@@ -201,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const filterVal = tab.getAttribute('data-filter');
 
-        // Filtre tıklandığında gizlenmiş olanları aç veya filtreye göre göster
         regionCards.forEach(card => {
           const category = card.getAttribute('data-category');
           if (filterVal === 'all' || category === filterVal || (filterVal && category && category.includes(filterVal))) {
@@ -211,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Eğer filtre yapılıyorsa "Tümünü Göster" butonunu gizle
         if (showMoreRegionsBtn) {
           showMoreRegionsBtn.style.display = (filterVal === 'all') ? 'inline-flex' : 'none';
         }
