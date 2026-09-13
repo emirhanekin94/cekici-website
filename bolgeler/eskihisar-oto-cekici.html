@@ -83,30 +83,38 @@
 <body>
 
   <!-- Top Bar -->
+  <!-- Üst Acil Durum Bilgi Şeridi -->
   <div class="top-bar">
     <div class="container">
       <div class="top-bar-left">
-        <span class="badge-247"><span class="pulse-dot"></span> 7/24 Nöbetçi Çekici</span>
-        <span>📍 Eskihisar Bölgesinde Hazır Nöbetçi Kurtarma Aracı</span>
+        <span class="badge-247"><span class="pulse-dot"></span> 7/24 Kesintisiz Hizmet</span>
+        <span>Tuzla, Pendik, Gebze & Tüm Çevre Otoyollarda Nöbetçi Çekici Noktaları</span>
       </div>
       <div class="top-bar-right">
-        <a href="tel:05516756624" class="top-phone-link">📞 0551 675 66 24</a>
+        <a href="tel:05516756624" class="top-phone-link">
+          <span class="svg-icon" style="width: 16px; height: 16px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+          0551 675 66 24
+        </a>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Header (Müşteri Yorumları Navbar'dan Çıkarıldı) -->
+  <!-- Ana Gezinme Menüsü (Obsidian Luxury Header) -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="brand-logo">
-        <div class="logo-icon">🪝</div>
+      <a href="../index.html" class="brand-logo" aria-label="XXX Oto Çekici Ana Sayfa">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg>
+        </div>
         <div class="logo-text">
           <span class="brand-title">XXX <span>OTO ÇEKİCİ</span></span>
-          <span class="brand-subtitle">7/24 Yol Yardım</span>
+          <span class="brand-subtitle">7/24 Yol Yardım & Kurtarma</span>
         </div>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Ana Menü">
         <ul>
           <li><a href="../index.html">Ana Sayfa</a></li>
           <li><a href="../hizmetler/index.html">Hizmetlerimiz</a></li>
@@ -118,8 +126,11 @@
       </nav>
 
       <div class="header-actions">
-        <a href="tel:05516756624" class="btn btn-call">📞 Hemen Ara</a>
-        <button class="menu-toggle-btn" aria-label="Menüyü Aç" aria-expanded="false">☰</button>
+        <a href="tel:05516756624" class="btn btn-call" id="header-call-btn">
+          <span class="svg-icon" style="width: 18px; height: 18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+          <span>0551 675 66 24</span>
+        </a>
+        <button class="menu-toggle-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -143,11 +154,11 @@
 
       <!-- Bölge Güvence Rozetleri -->
       <div class="region-badge-bar">
-        <div class="region-badge-pill">⚡ Ortalama Varış: <strong>15 Dakika</strong></div>
-        <div class="region-badge-pill">🛡️ %100 Taşıma Kaskosu</div>
-        <div class="region-badge-pill">💰 Sabit Fiyat Garantisi</div>
-        <div class="region-badge-pill">🪝 Aparatlı Sıfır Hasar Taşıma</div>
-        <div class="region-badge-pill">⏰ 7/24 Kesintisiz Nöbetçi Filo</div>
+        <div class="region-badge-pill"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg> Ortalama Varış: <strong>15 Dakika</strong></div>
+        <div class="region-badge-pill"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> %100 Taşıma Kaskosu</div>
+        <div class="region-badge-pill"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg> Sabit Fiyat Garantisi</div>
+        <div class="region-badge-pill"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg> Aparatlı Sıfır Hasar Taşıma</div>
+        <div class="region-badge-pill"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> 7/24 Kesintisiz Nöbetçi Filo</div>
       </div>
       
       <!-- Hızlı Çağrı & Doğrudan WhatsApp Teklif Formu Kutusu -->
@@ -162,8 +173,8 @@
               Aracınız ister yürür vaziyette ister mekanik kilitli olsun; son model hidrolik kayar kasalı araçlarımızla ortalama <strong>15 Dakika</strong> içinde yanınızdayız.
             </p>
             <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
-              <a href="tel:05516756624" class="btn btn-call btn-lg">📞 0551 675 66 24</a>
-              <a href="#" class="btn btn-whatsapp btn-lg btn-send-location">💬 Canlı Konum At</a>
+              <a href="tel:05516756624" class="btn btn-call btn-lg"><span class="svg-icon" style="width:18px;height:18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span> 0551 675 66 24</a>
+              <a href="#" class="btn btn-whatsapp btn-lg btn-send-location"><span class="svg-icon" style="width:18px;height:18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span> Canlı Konum At</a>
             </div>
           </div>
 
@@ -184,7 +195,7 @@
                 <input type="tel" name="user_phone" placeholder="Telefon Numaranız (İsteğe Bağlı)" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.88rem;">
               </div>
               <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 11px; font-size: 0.92rem;">
-                🚀 WhatsApp'tan Teklif Al & Gönder
+                <span class="svg-icon" style="width:18px;height:18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span> WhatsApp'tan Teklif Al & Gönder
               </button>
             </form>
           </div>
@@ -340,16 +351,152 @@
 
       </article>
 
-      <!-- Diğer Komşu Bölgeler -->
-      <div style="background: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px;">
-        <h3 style="font-size: 1.2rem; color: var(--secondary); margin-bottom: 15px;">Yakın Çevre Hizmet Bölgelerimiz</h3>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <a href="tuzla-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">Tuzla Çekici</a>
-          <a href="sabiha-gokcen-havalimani-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">Sabiha Gökçen</a>
-          <a href="kuzey-marmara-otoyolu-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">Kuzey Marmara</a>
-          <a href="tem-otoyolu-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">TEM Otoyolu</a>
-          <a href="gebze-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">Gebze Çekici</a>
-          <a href="pendik-oto-cekici.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">Pendik Çekici</a>
+      <!-- Yakın Çevre Hizmet Bölgelerimiz (Yeni Lüks Kartlar) -->
+      <div style="margin-top: 50px;">
+        <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+          <span class="section-tag">Komşu Lokasyonlar</span>
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-dark);">Yakın Çevre Nöbetçi Çekici Noktaları</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Bu bölgeye en yakın hazır bekleyen mobil kurtarma filomuz:</p>
+        </div>
+        <div class="regions-matrix">
+
+        <a href="tuzla-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">Tuzla Oto Çekici</h3>
+          <p class="region-card-sub">İçmeler, Aydınlı, Marina, Tepeören, E-5</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 10 - 15 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="sabiha-gokcen-havalimani-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">Sabiha Gökçen Havalimanı</h3>
+          <p class="region-card-sub">Terminal, Otoparklar, Kargo Alanı, Bağlantı Yolu</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 10 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="kuzey-marmara-otoyolu-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">Kuzey Marmara Otoyolu</h3>
+          <p class="region-card-sub">Kurnaköy, Sevindikli, Gişeler ve Tesisler</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 15 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="tem-otoyolu-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">TEM Otoyolu Çekici</h3>
+          <p class="region-card-sub">Kurtköy, Orhanlı, Şekerpınar Gişeler Hattı</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 12 - 15 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="d100-e5-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">D-100 / E-5 Karayolu</h3>
+          <p class="region-card-sub">Tuzla Köprüsü, İçmeler, Tersaneler, Yan Yol</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 10 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="akfirat-oto-cekici.html" class="region-card-luxury">
+          <div class="region-card-top">
+            <div class="region-icon-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <span class="region-status-pill">
+              <span class="status-live-dot"></span>
+              7/24 Nöbetçi
+            </span>
+          </div>
+          <h3 class="region-card-name">Akfırat Çekici</h3>
+          <p class="region-card-sub">Formula 1 Çevresi, Villalar, Tepeören Yolu</p>
+          <div class="region-card-footer">
+            <span class="region-eta-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              Varış: 15 Dk
+            </span>
+            <span class="region-action-arrow">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </a>
         </div>
       </div>
 
@@ -357,21 +504,27 @@
   </main>
 
   <!-- Tam 4 Sütunlu Zengin Footer (Tüm Bölge Sayfaları İçin Eksiksiz) -->
+  <!-- Tam 4 Sütunlu Zengin Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom: 16px;">
-            <div class="logo-icon">🪝</div>
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg>
+            </div>
             <div class="logo-text">
-              <span class="brand-title" style="color: #fff;">XXX <span>OTO ÇEKİCİ</span></span>
+              <span class="brand-title">XXX <span>OTO ÇEKİCİ</span></span>
               <span class="brand-subtitle">7/24 Yol Yardım</span>
             </div>
           </div>
           <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
             XXX Oto Çekici ve Kurtarma olarak İstanbul Anadolu Yakası ve Kocaeli sınırlarında 7/24 profesyonel, kaskolu ve en uygun fiyatlı oto kurtarma hizmeti veriyoruz.
           </p>
-          <a href="tel:05516756624" style="color: #fff; font-weight: 800; font-size: 1.2rem;">📞 0551 675 66 24</a>
+          <a href="tel:05516756624" style="color: #fff; font-weight: 800; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 8px;">
+            <span class="svg-icon" style="width: 20px; height: 20px; color: var(--green-call);"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+            0551 675 66 24
+          </a>
         </div>
 
         <div>
@@ -389,12 +542,12 @@
         <div>
           <h4 class="footer-col-title">Popüler Bölgeler</h4>
           <ul class="footer-links">
-            <li><a href="tuzla-oto-cekici.html">Tuzla Oto Çekici</a></li>
-            <li><a href="sabiha-gokcen-havalimani-oto-cekici.html">Sabiha Gökçen Çekici</a></li>
-            <li><a href="kuzey-marmara-otoyolu-oto-cekici.html">Kuzey Marmara Otoyolu</a></li>
-            <li><a href="tem-otoyolu-oto-cekici.html">TEM Otoyolu Çekici</a></li>
-            <li><a href="gebze-oto-cekici.html">Gebze Oto Çekici</a></li>
-            <li><a href="pendik-oto-cekici.html">Pendik Oto Çekici</a></li>
+            <li><a href="../bolgeler/tuzla-oto-cekici.html">Tuzla Oto Çekici</a></li>
+            <li><a href="../bolgeler/sabiha-gokcen-havalimani-oto-cekici.html">Sabiha Gökçen Çekici</a></li>
+            <li><a href="../bolgeler/kuzey-marmara-otoyolu-oto-cekici.html">Kuzey Marmara Otoyolu</a></li>
+            <li><a href="../bolgeler/tem-otoyolu-oto-cekici.html">TEM Otoyolu Çekici</a></li>
+            <li><a href="../bolgeler/gebze-oto-cekici.html">Gebze Oto Çekici</a></li>
+            <li><a href="../bolgeler/pendik-oto-cekici.html">Pendik Oto Çekici</a></li>
           </ul>
         </div>
 
@@ -407,27 +560,28 @@
             <li><a href="tel:05516756624">7/24 Acil İhbar Hattı</a></li>
           </ul>
           <div style="margin-top: 20px; font-size: 0.85rem; color: #94a3b8;">
-            Eskihisar Nöbetçi Çekici Noktası: 10-15 Dk Varış
+            Tuzla, Pendik, Gebze & Tüm Çevre Yolları Nöbetçi Çekici Noktası
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>© 2026 XXX Oto Çekici & Kurtarma. Tüm Hakları Saklıdır.</div>
-        <div>Eskihisar 7/24 Acil Çağrı: <a href="tel:05516756624" style="color: #fff; font-weight: 700;">0551 675 66 24</a></div>
+        <div>Tuzla, Pendik, Gebze 7/24 En Yakın Acil Çekici ve Yol Yardım</div>
       </div>
     </div>
   </footer>
 
   <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları -->
+  <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları (Vektör SVG) -->
   <aside class="floating-actions-wrap" aria-label="Acil İletişim Butonları">
     <a href="tel:05516756624" class="floating-btn floating-call" id="float-call-eskihisar-oto-cekici" title="0551 675 66 24">
-      <span class="floating-btn-icon">📞</span>
+      <span class="svg-icon" style="width: 22px; height: 22px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
       <span>0551 675 66 24</span>
       <span class="floating-beacon"></span>
     </a>
     <a href="#" class="floating-btn floating-whatsapp btn-send-location" id="float-wp-eskihisar-oto-cekici" title="WhatsApp Konum Gönder">
-      <span class="floating-btn-icon">💬</span>
+      <span class="svg-icon" style="width: 22px; height: 22px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
       <span>WhatsApp Konum Gönder</span>
     </a>
   </aside>

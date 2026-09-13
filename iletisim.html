@@ -41,31 +41,38 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
+  
+  <!-- Üst Acil Durum Bilgi Şeridi -->
   <div class="top-bar">
     <div class="container">
       <div class="top-bar-left">
         <span class="badge-247"><span class="pulse-dot"></span> 7/24 Kesintisiz Hizmet</span>
-        <span>📍 Tuzla, Pendik, Gebze ve Otoyollar Nöbetçi Çekici Noktası</span>
+        <span>Tuzla, Pendik, Gebze & Tüm Çevre Otoyollarda Nöbetçi Çekici Noktaları</span>
       </div>
       <div class="top-bar-right">
-        <a href="tel:05516756624" class="top-phone-link">📞 0551 675 66 24</a>
+        <a href="tel:05516756624" class="top-phone-link">
+          <span class="svg-icon" style="width: 16px; height: 16px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+          0551 675 66 24
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Header (Müşteri Yorumları Navbar'dan Çıkarıldı) -->
+  
+  <!-- Ana Gezinme Menüsü (Obsidian Luxury Header) -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <div class="logo-icon">🪝</div>
+      <a href="index.html" class="brand-logo" aria-label="XXX Oto Çekici Ana Sayfa">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg>
+        </div>
         <div class="logo-text">
           <span class="brand-title">XXX <span>OTO ÇEKİCİ</span></span>
-          <span class="brand-subtitle">7/24 Yol Yardım</span>
+          <span class="brand-subtitle">7/24 Yol Yardım & Kurtarma</span>
         </div>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Ana Menü">
         <ul>
           <li><a href="index.html">Ana Sayfa</a></li>
           <li><a href="hizmetler/index.html">Hizmetlerimiz</a></li>
@@ -77,19 +84,22 @@
       </nav>
 
       <div class="header-actions">
-        <a href="tel:05516756624" class="btn btn-call">📞 Hemen Ara</a>
-        <button class="menu-toggle-btn" aria-label="Menü">☰</button>
+        <a href="tel:05516756624" class="btn btn-call" id="header-call-btn">
+          <span class="svg-icon" style="width: 18px; height: 18px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+          <span>0551 675 66 24</span>
+        </a>
+        <button class="menu-toggle-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
 
   <!-- Sayfa Başlığı / Breadcrumb -->
-  <section style="background: linear-gradient(135deg, var(--secondary), var(--bg-dark)); color: #fff; padding: 45px 0;">
+  <section style="background: var(--dark-gradient); color: #fff; padding: 50px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
     <div class="container">
       <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px;">
         <a href="index.html" style="color: #cbd5e1;">Ana Sayfa</a> / <span>İletişim</span>
       </div>
-      <h1 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 8px;">İletişim & Acil Çekici Çağrı Merkezi</h1>
+      <h1 style="font-size: 2.3rem; font-weight: 900; margin-bottom: 8px;">İletişim & Acil Çekici Çağrı Merkezi</h1>
       <p style="color: #cbd5e1; font-size: 1.05rem;">
         Yolda kaldığınızda bize günün ve gecenin her saati <strong>0551 675 66 24</strong> üzerinden veya WhatsApp canlı konum paylaşımı ile ulaşabilirsiniz.
       </p>
@@ -107,12 +117,14 @@
 
         <!-- İletişim Kartı -->
         <div class="contact-details-box">
-          <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--secondary); margin-bottom: 20px;">
+          <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-dark); margin-bottom: 20px;">
             7/24 Kesintisiz İletişim Bilgileri
           </h2>
 
           <div class="contact-item-row">
-            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+            </div>
             <div>
               <div class="contact-item-title">Telefon / Acil Çağrı (7/24)</div>
               <div class="contact-item-value">
@@ -123,9 +135,11 @@
           </div>
 
           <div class="contact-item-row">
-            <div class="contact-item-icon">💬</div>
+            <div class="contact-item-icon" style="background: rgba(37, 211, 102, 0.15); color: var(--whatsapp);">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+            </div>
             <div>
-              <div class="contact-item-title">WhatsApp Destek & Konum</div>
+              <div class="contact-item-title">WhatsApp Destek & Canlı Konum</div>
               <div class="contact-item-value">
                 <a href="#" class="btn-send-location" style="color: var(--whatsapp);">Konum Paylaş & Fiyat Al</a>
               </div>
@@ -134,7 +148,9 @@
           </div>
 
           <div class="contact-item-row">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
             <div>
               <div class="contact-item-title">Ana Operasyon Merkezi & Garaj</div>
               <div class="contact-item-value" style="font-size: 1.05rem;">
@@ -145,7 +161,9 @@
           </div>
 
           <div class="contact-item-row">
-            <div class="contact-item-icon">🕒</div>
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
             <div>
               <div class="contact-item-title">Hizmet Saatleri</div>
               <div class="contact-item-value" style="font-size: 1.05rem; color: var(--green-call);">
@@ -154,9 +172,15 @@
             </div>
           </div>
 
-          <div style="margin-top: 15px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="tel:05516756624" class="btn btn-call btn-lg" style="flex: 1;">📞 Şimdi Ara: 0551 675 66 24</a>
-            <a href="#" class="btn btn-whatsapp btn-lg btn-send-location" style="flex: 1;">💬 Konum Gönder</a>
+          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="tel:05516756624" class="btn btn-call btn-lg" style="flex: 1;">
+              <span class="svg-icon" style="width: 20px; height: 20px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+              <span>0551 675 66 24</span>
+            </a>
+            <a href="#" class="btn btn-whatsapp btn-lg btn-send-location" style="flex: 1;">
+              <span class="svg-icon" style="width: 20px; height: 20px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
+              <span>WhatsApp Konum</span>
+            </a>
           </div>
         </div>
       </div>
@@ -172,53 +196,60 @@
         <p class="section-desc">Aracınızın nereden nereye taşınacağını bize bildirin, gönder butonuna bastığınızda mesaj doğrudan WhatsApp'a aktarılsın.</p>
       </div>
 
-      <div style="background: #fff; padding: 35px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+      <div style="background: #fff; padding: 35px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--border-card);">
         <form class="wp-contact-form">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
             <div>
-              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Alınacağı Konum / İlçe *</label>
-              <input type="text" name="from_location" required placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-dark);">Alınacağı Konum / İlçe *</label>
+              <input type="text" name="from_location" required placeholder="Örn: Tuzla Aydınlı veya TEM Otoyolu" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.95rem;">
             </div>
             <div>
-              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Bırakılacağı Konum / Sanayi *</label>
-              <input type="text" name="to_location" required placeholder="Örn: İçmeler Sanayi veya Bostancı" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-dark);">Bırakılacağı Konum / Sanayi *</label>
+              <input type="text" name="to_location" required placeholder="Örn: İçmeler Sanayi veya Bostancı" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.95rem;">
             </div>
           </div>
 
           <div style="margin-bottom: 20px;">
-            <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">Araç Tipi ve Durumu *</label>
-            <input type="text" name="car_model" required placeholder="Örn: Otomobil, yürür durumda / Kaza yaptı, teker kilitli" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-dark);">Araç Tipi ve Durumu *</label>
+            <input type="text" name="car_model" required placeholder="Örn: Otomobil, yürür durumda / Kaza yaptı, teker kilitli" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.95rem;">
           </div>
 
           <div style="margin-bottom: 25px;">
-            <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem;">İletişim Numaranız (İsteğe Bağlı)</label>
-            <input type="tel" name="user_phone" placeholder="05XX XXX XX XX" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-dark);">İletişim Numaranız (İsteğe Bağlı)</label>
+            <input type="tel" name="user_phone" placeholder="05XX XXX XX XX" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.95rem;">
           </div>
 
           <button type="submit" class="btn btn-whatsapp btn-lg" style="width: 100%;">
-            🚀 WhatsApp'a Gönder & Anında Net Fiyat Al
+            <span class="svg-icon" style="width: 20px; height: 20px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
+            <span>WhatsApp'a Gönder & Anında Net Fiyat Al</span>
           </button>
         </form>
       </div>
     </div>
   </section>
 
+  
   <!-- Tam 4 Sütunlu Zengin Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom: 16px;">
-            <div class="logo-icon">🪝</div>
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 17h2c.55 0 1-.45 1-1v-3.5c0-.38-.21-.71-.53-.88l-2.02-1.01A1.99 1.99 0 0018.55 10H16V7a1 1 0 00-1-1H3a1 1 0 00-1 1v10h2a3 3 0 006 0h4a3 3 0 006 0zm-12 1a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2zM16 11.5h2.55l1.6 1.07V15H16v-3.5zM4 8h10v7H4V8z"/></svg>
+            </div>
             <div class="logo-text">
-              <span class="brand-title" style="color: #fff;">XXX <span>OTO ÇEKİCİ</span></span>
+              <span class="brand-title">XXX <span>OTO ÇEKİCİ</span></span>
               <span class="brand-subtitle">7/24 Yol Yardım</span>
             </div>
           </div>
           <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
             XXX Oto Çekici ve Kurtarma olarak İstanbul Anadolu Yakası ve Kocaeli sınırlarında 7/24 profesyonel, kaskolu ve en uygun fiyatlı oto kurtarma hizmeti veriyoruz.
           </p>
-          <a href="tel:05516756624" style="color: #fff; font-weight: 800; font-size: 1.2rem;">📞 0551 675 66 24</a>
+          <a href="tel:05516756624" style="color: #fff; font-weight: 800; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 8px;">
+            <span class="svg-icon" style="width: 20px; height: 20px; color: var(--green-call);"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
+            0551 675 66 24
+          </a>
         </div>
 
         <div>
@@ -261,20 +292,21 @@
 
       <div class="footer-bottom">
         <div>© 2026 XXX Oto Çekici & Kurtarma. Tüm Hakları Saklıdır.</div>
-        <div>7/24 Acil Çağrı: <a href="tel:05516756624" style="color: #fff; font-weight: 700;">0551 675 66 24</a></div>
+        <div>Tuzla, Pendik, Gebze 7/24 En Yakın Acil Çekici ve Yol Yardım</div>
       </div>
     </div>
   </footer>
 
-  <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları -->
+  
+  <!-- Sağ Altta Sabit, Göze Çarpan, İri Boyutlu Acil Aksiyon Butonları (Vektör SVG) -->
   <aside class="floating-actions-wrap" aria-label="Acil İletişim Butonları">
-    <a href="tel:05516756624" class="floating-btn floating-call" id="float-call-contact" title="0551 675 66 24">
-      <span class="floating-btn-icon">📞</span>
+    <a href="tel:05516756624" class="floating-btn floating-call" id="float-call-iletisim" title="0551 675 66 24">
+      <span class="svg-icon" style="width: 22px; height: 22px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span>
       <span>0551 675 66 24</span>
       <span class="floating-beacon"></span>
     </a>
-    <a href="#" class="floating-btn floating-whatsapp btn-send-location" id="float-wp-contact" title="WhatsApp Konum Gönder">
-      <span class="floating-btn-icon">💬</span>
+    <a href="#" class="floating-btn floating-whatsapp btn-send-location" id="float-wp-iletisim" title="WhatsApp Konum Gönder">
+      <span class="svg-icon" style="width: 22px; height: 22px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
       <span>WhatsApp Konum Gönder</span>
     </a>
   </aside>

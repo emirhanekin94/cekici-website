@@ -115,4 +115,28 @@ document.addEventListener('DOMContentLoaded', () => {
       window.open(whatsappUrl, '_blank');
     });
   });
+
+  // 5. Bölge Filtreleme Sekmeleri
+  const filterTabs = document.querySelectorAll('.filter-tab-btn');
+  const regionCards = document.querySelectorAll('.region-card-luxury');
+
+  if (filterTabs.length > 0 && regionCards.length > 0) {
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filterVal = tab.getAttribute('data-filter');
+
+        regionCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterVal === 'all' || category === filterVal || (filterVal && category && category.includes(filterVal))) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 });
