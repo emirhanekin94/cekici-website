@@ -280,17 +280,27 @@ ul {
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: clamp(8px, 1.2vw, 18px);
 }
 
 .main-nav a {
   font-weight: 600;
   color: #cbd5e1;
-  font-size: 0.92rem;
-  padding: 8px 14px;
+  font-size: clamp(0.84rem, 0.95vw, 0.92rem);
+  padding: 8px clamp(8px, 1vw, 13px);
   border-radius: var(--radius-sm);
   transition: var(--transition);
   white-space: nowrap !important;
+}
+
+@media (max-width: 1180px) and (min-width: 861px) {
+  .main-nav ul {
+    gap: 8px !important;
+  }
+  .main-nav a {
+    padding: 6px 9px !important;
+    font-size: 0.84rem !important;
+  }
 }
 
 .main-nav a:hover,
@@ -765,12 +775,16 @@ ul {
 /* ==========================================================================
    24 BÖLGE LÜKS VE GÖSTERİŞLİ KART SİSTEMİ (REDESIGNED REGION CARDS)
    ========================================================================== */
-.region-filter-tabs {
+.region-filter-tabs,
+.filter-tabs-wrap {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 35px;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 .filter-tab-btn {
@@ -1565,8 +1579,8 @@ ul {
     z-index: 999999 !important;
   }
   .main-nav.active {
-    max-height: 440px !important;
-    padding: 14px 18px 18px !important;
+    max-height: 560px !important;
+    padding: 14px 18px 20px !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
