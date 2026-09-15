@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         restoreBtn();
       };
 
-      // Cihazda veya tarayıcıda konum izni kapalıysa çalışacak yedek mekanizma
+      // Cihazda veya tarayıcıda konum izni kapalıysa ya da gecikirse çalışacak hızlı yönlendirme
       const onLocationError = (err) => {
         restoreBtn();
 
@@ -139,35 +139,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const area = detected ? detected : 'Tuzla / Pendik ve Çevresi';
 
-        // İzin reddedildiyse kullanıcıya tarayıcıdan izin açması için bilgilendirme
-        if (err && err.code === 1) { // PERMISSION_DENIED
-          alert("⚠️ Konum İzni Kapalı:\n\nGerçek konumunuzun haritada otomatik açılması için Safari/Chrome adres çubuğundaki (aA veya Kilit) simgesine dokunup 'Konum İzni' veriniz.\n\nŞimdi açılacak WhatsApp sohbetinden de ataç (📎) simgesine basarak 'Konum' paylaşabilirsiniz.");
-        }
-
-        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Telefonumdan konum izni kapalı olduğu için harita konumu iletilemedi, lütfen bu sohbete WhatsApp ataç 📎 simgesine basıp Konumunuzu gönderiniz)`;
+        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Harita konumumu bu sohbete WhatsApp'taki ataç 📎 simgesine basıp iletiyorum)`;
         sendWhatsAppMessage(message);
       };
 
       if (navigator.geolocation) {
-        // Önce Yüksek Hassasiyetli GERÇEK GPS uydusunu dene (enableHighAccuracy: true)
+        let hasResponded = false;
+
+        // 4 saniyede konum gelmezse kullanıcıyı bekletmeden direkt WhatsApp'a aktar
+        const fallbackTimer = setTimeout(() => {
+          if (!hasResponded) {
+            hasResponded = true;
+            onLocationError({ code: 3, message: 'timeout' });
+          }
+        }, 4500);
+
         navigator.geolocation.getCurrentPosition(
-          onLocationSuccess,
+          (pos) => {
+            if (!hasResponded) {
+              hasResponded = true;
+              clearTimeout(fallbackTimer);
+              onLocationSuccess(pos);
+            }
+          },
           (err) => {
-            // Eğer GPS uydu kilidi zaman aşımına uğrarsa (örneğin kapalı mekandaysa), Wi-Fi/Ağ bazlı gerçek konumu dene
-            if (err && err.code === 3) { // TIMEOUT
-              navigator.geolocation.getCurrentPosition(
-                onLocationSuccess,
-                onLocationError,
-                { enableHighAccuracy: false, timeout: 8000, maximumAge: 0 }
-              );
-            } else {
+            if (!hasResponded) {
+              hasResponded = true;
+              clearTimeout(fallbackTimer);
               onLocationError(err);
             }
           },
           { 
-            enableHighAccuracy: true, // Gerçek GPS çipi ve hassas koordinatlar
-            timeout: 10000, 
-            maximumAge: 0 // Önbellek değil, anlık taze gerçek konum
+            enableHighAccuracy: true,
+            timeout: 4000, 
+            maximumAge: 300000 // Son 5 dakikadaki GPS/Wi-Fi konumunu kullanarak iPhone'da 0.1 saniyede açar
           }
         );
       } else {
