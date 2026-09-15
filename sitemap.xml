@@ -65,9 +65,33 @@
   </url>
   <url>
     <loc>https://tuzlayolyardim.com/hizmetler/kaza-kurtarma-vinc.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tuzlayolyardim.com/hizmetler/lastik-tamir-degisim.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tuzlayolyardim.com/hizmetler/ariza-yol-yardim.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tuzlayolyardim.com/hizmetler/tekne-karavan-cekici.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tuzlayolyardim.com/hizmetler/sehirlerarasi-arac-tasima.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- Blog Sayfaları -->
