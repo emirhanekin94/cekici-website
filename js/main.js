@@ -71,35 +71,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // WhatsApp Mesajı Gönderme Yardımcısı (iOS Safari ve Mobil Pop-up Engelleyici Çözümü)
+  function sendWhatsAppMessage(text) {
+    const encodedText = encodeURIComponent(text);
+    // wa.me kısa linki 302 yönlendirmesi yaptığı için iOS Safari popup'ında veya uygulama geçişinde parametreleri silebilir.
+    // Doğrudan api.whatsapp.com kullanılarak bu yönlendirme kaybı önlenir.
+    const url = `https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodedText}`;
+
+    // Mobil cihaz (iOS / Android) tespiti
+    const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isMobile) {
+      // Mobilde ve asenkron callback'lerde (geolocation) window.open kullanılırsa iOS Safari pop-up engeller.
+      // window.location.href ise pop-up engeline takılmadan doğrudan yerel WhatsApp uygulamasını mesaj dolu olarak açar.
+      window.location.href = url;
+    } else {
+      // Masaüstünde yeni sekmede aç, pop-up engellenirse mevcut sekmede yönlendir
+      const win = window.open(url, '_blank');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = url;
+      }
+    }
+  }
+
   // 3. Akıllı WhatsApp Konum Gönderme Butonları (Tek Tuşla GPS Konum İletimi)
   const geoLocationBtns = document.querySelectorAll('.btn-send-location');
   geoLocationBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>📍 Konum tespiti yapılıyor...</span>';
+
+      const restoreBtn = () => {
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 2000);
+      };
+
       if (navigator.geolocation) {
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>📍 Konum tespiti yapılıyor...</span>';
-        
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-            const message = encodeURIComponent(`Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`);
-            window.open(`https://wa.me/${PHONE_NUMBER}?text=${message}`, '_blank');
-            btn.innerHTML = originalText;
+            const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`;
+            sendWhatsAppMessage(message);
+            restoreBtn();
           },
           (error) => {
-            const defaultMsg = encodeURIComponent('Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ');
-            window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
-            btn.innerHTML = originalText;
+            // Konum izni verilmediğinde veya hata alındığında boş mesaj gitmesin, genel yol yardım mesajı ile açılsın
+            const defaultMsg = 'Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ';
+            sendWhatsAppMessage(defaultMsg);
+            restoreBtn();
           },
-          { timeout: 8000, enableHighAccuracy: true }
+          { 
+            timeout: 10000, 
+            enableHighAccuracy: true,
+            maximumAge: 60000 // Son 1 dakikadaki önbellek konumunu kullanarak anında açılmasını sağlar
+          }
         );
       } else {
-        const defaultMsg = encodeURIComponent('Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var.');
-        window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
+        const defaultMsg = 'Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var.';
+        sendWhatsAppMessage(defaultMsg);
+        restoreBtn();
       }
     });
   });
@@ -233,8 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       text += `\nLütfen en kısa sürede sabit fiyat ve varış süresi bildiriniz.`;
 
-      const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(whatsappUrl, '_blank');
+      sendWhatsAppMessage(text);
     });
   });
 
