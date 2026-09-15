@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       const originalText = btn.innerHTML;
-      btn.innerHTML = '<span>📍 Konum tespiti yapılıyor...</span>';
+      btn.innerHTML = '<span>📍 Konum alınıyor...</span>';
 
       const restoreBtn = () => {
         setTimeout(() => {
@@ -110,32 +110,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
       };
 
+      // Konum başarıyla alındığında çağrılır
+      const onLocationSuccess = (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
+        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`;
+        sendWhatsAppMessage(message);
+        restoreBtn();
+      };
+
+      // Sayfa başlığı veya bölge seçicisinden otomatik bölge tespiti
+      const sendDefaultLocation = () => {
+        let detected = '';
+        const regionInput = document.getElementById('hidden-region-input');
+        if (regionInput && regionInput.value) {
+          detected = regionInput.value;
+        } else {
+          const title = document.title;
+          const match = title.match(/([a-zA-ZçğıöşüÇĞİÖŞÜ\s]+)\s+(?:Oto Çekici|Yol Yardım)/i);
+          if (match && match[1]) {
+            detected = match[1].trim();
+          }
+        }
+        const area = detected ? detected : 'Tuzla / Çevresi';
+        const defaultMsg = `Merhaba Tuzla Yol Yardım, acil oto çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Harita üzerinden net konumumu WhatsApp ataç simgesinden de paylaşıyorum)`;
+        sendWhatsAppMessage(defaultMsg);
+        restoreBtn();
+      };
+
+      // GPS kapalıysa veya izin verilmediyse IP üzerinden konum tespiti fallback'i
+      const onLocationFallback = () => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+        fetch('https://ipwho.is/', { signal: controller.signal })
+          .then(res => res.json())
+          .then(data => {
+            clearTimeout(timeoutId);
+            if (data && data.success && data.latitude && data.longitude) {
+              const place = data.city ? `${data.city}, ${data.region || ''}` : (data.region || 'Tuzla / İstanbul');
+              const mapsUrl = `https://maps.google.com/?q=${data.latitude},${data.longitude}`;
+              const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Konumum (${place}): ${mapsUrl}`;
+              sendWhatsAppMessage(message);
+            } else {
+              sendDefaultLocation();
+            }
+          })
+          .catch(() => {
+            clearTimeout(timeoutId);
+            sendDefaultLocation();
+          })
+          .finally(() => {
+            restoreBtn();
+          });
+      };
+
       if (navigator.geolocation) {
+        // iOS Safari'de enableHighAccuracy: false Wi-Fi/baz istasyonu ile 200ms'de anında sonuç verir.
+        // Binalarda veya kapalı alanlarda GPS uydu kilitlemesi beklemediği için asla zaman aşımına uğramaz.
         navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-            const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`;
-            sendWhatsAppMessage(message);
-            restoreBtn();
-          },
-          (error) => {
-            // Konum izni verilmediğinde veya hata alındığında boş mesaj gitmesin, genel yol yardım mesajı ile açılsın
-            const defaultMsg = 'Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ';
-            sendWhatsAppMessage(defaultMsg);
-            restoreBtn();
+          onLocationSuccess,
+          (err) => {
+            // İlk deneme başarısız olursa (veya kullanıcı daha önce izin vermediyse) IP Geolocation ile konumu doldur
+            onLocationFallback();
           },
           { 
-            timeout: 10000, 
-            enableHighAccuracy: true,
-            maximumAge: 60000 // Son 1 dakikadaki önbellek konumunu kullanarak anında açılmasını sağlar
+            timeout: 12000, 
+            enableHighAccuracy: false,
+            maximumAge: 300000 // Son 5 dakikadaki konumu kullanarak iOS'ta bekleme süresini sıfırlar
           }
         );
       } else {
-        const defaultMsg = 'Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var.';
-        sendWhatsAppMessage(defaultMsg);
-        restoreBtn();
+        onLocationFallback();
       }
     });
   });
