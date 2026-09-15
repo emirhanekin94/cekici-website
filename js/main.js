@@ -95,33 +95,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. Akıllı WhatsApp Konum Gönderme Butonları (Tek Tuşla GPS Konum İletimi)
+  // 3. Akıllı WhatsApp Konum Gönderme Butonları (Gerçek GPS Konum İletimi)
   const geoLocationBtns = document.querySelectorAll('.btn-send-location');
   geoLocationBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       
       const originalText = btn.innerHTML;
-      btn.innerHTML = '<span>📍 Konum alınıyor...</span>';
+      btn.innerHTML = '<span>📍 GPS Konumu Alınıyor...</span>';
 
       const restoreBtn = () => {
         setTimeout(() => {
           btn.innerHTML = originalText;
-        }, 2000);
+        }, 2500);
       };
 
-      // Konum başarıyla alındığında çağrılır
+      // Gerçek GPS konumu başarıyla alındığında
       const onLocationSuccess = (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+        // Gerçek cihaz GPS koordinatı
         const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`;
+        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı GPS Konumum: ${mapsUrl}`;
         sendWhatsAppMessage(message);
         restoreBtn();
       };
 
-      // Sayfa başlığı veya bölge seçicisinden otomatik bölge tespiti
-      const sendDefaultLocation = () => {
+      // Cihazda veya tarayıcıda konum izni kapalıysa çalışacak yedek mekanizma
+      const onLocationError = (err) => {
+        restoreBtn();
+
+        // Sayfa başlığı veya bölge seçicisinden otomatik bölge tespiti
         let detected = '';
         const regionInput = document.getElementById('hidden-region-input');
         if (regionInput && regionInput.value) {
@@ -133,56 +137,41 @@ document.addEventListener('DOMContentLoaded', () => {
             detected = match[1].trim();
           }
         }
-        const area = detected ? detected : 'Tuzla / Çevresi';
-        const defaultMsg = `Merhaba Tuzla Yol Yardım, acil oto çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Harita üzerinden net konumumu WhatsApp ataç simgesinden de paylaşıyorum)`;
-        sendWhatsAppMessage(defaultMsg);
-        restoreBtn();
-      };
+        const area = detected ? detected : 'Tuzla / Pendik ve Çevresi';
 
-      // GPS kapalıysa veya izin verilmediyse IP üzerinden konum tespiti fallback'i
-      const onLocationFallback = () => {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2500);
+        // İzin reddedildiyse kullanıcıya tarayıcıdan izin açması için bilgilendirme
+        if (err && err.code === 1) { // PERMISSION_DENIED
+          alert("⚠️ Konum İzni Kapalı:\n\nGerçek konumunuzun haritada otomatik açılması için Safari/Chrome adres çubuğundaki (aA veya Kilit) simgesine dokunup 'Konum İzni' veriniz.\n\nŞimdi açılacak WhatsApp sohbetinden de ataç (📎) simgesine basarak 'Konum' paylaşabilirsiniz.");
+        }
 
-        fetch('https://ipwho.is/', { signal: controller.signal })
-          .then(res => res.json())
-          .then(data => {
-            clearTimeout(timeoutId);
-            if (data && data.success && data.latitude && data.longitude) {
-              const place = data.city ? `${data.city}, ${data.region || ''}` : (data.region || 'Tuzla / İstanbul');
-              const mapsUrl = `https://maps.google.com/?q=${data.latitude},${data.longitude}`;
-              const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Konumum (${place}): ${mapsUrl}`;
-              sendWhatsAppMessage(message);
-            } else {
-              sendDefaultLocation();
-            }
-          })
-          .catch(() => {
-            clearTimeout(timeoutId);
-            sendDefaultLocation();
-          })
-          .finally(() => {
-            restoreBtn();
-          });
+        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Telefonumdan konum izni kapalı olduğu için harita konumu iletilemedi, lütfen bu sohbete WhatsApp ataç 📎 simgesine basıp Konumunuzu gönderiniz)`;
+        sendWhatsAppMessage(message);
       };
 
       if (navigator.geolocation) {
-        // iOS Safari'de enableHighAccuracy: false Wi-Fi/baz istasyonu ile 200ms'de anında sonuç verir.
-        // Binalarda veya kapalı alanlarda GPS uydu kilitlemesi beklemediği için asla zaman aşımına uğramaz.
+        // Önce Yüksek Hassasiyetli GERÇEK GPS uydusunu dene (enableHighAccuracy: true)
         navigator.geolocation.getCurrentPosition(
           onLocationSuccess,
           (err) => {
-            // İlk deneme başarısız olursa (veya kullanıcı daha önce izin vermediyse) IP Geolocation ile konumu doldur
-            onLocationFallback();
+            // Eğer GPS uydu kilidi zaman aşımına uğrarsa (örneğin kapalı mekandaysa), Wi-Fi/Ağ bazlı gerçek konumu dene
+            if (err && err.code === 3) { // TIMEOUT
+              navigator.geolocation.getCurrentPosition(
+                onLocationSuccess,
+                onLocationError,
+                { enableHighAccuracy: false, timeout: 8000, maximumAge: 0 }
+              );
+            } else {
+              onLocationError(err);
+            }
           },
           { 
-            timeout: 12000, 
-            enableHighAccuracy: false,
-            maximumAge: 300000 // Son 5 dakikadaki konumu kullanarak iOS'ta bekleme süresini sıfırlar
+            enableHighAccuracy: true, // Gerçek GPS çipi ve hassas koordinatlar
+            timeout: 10000, 
+            maximumAge: 0 // Önbellek değil, anlık taze gerçek konum
           }
         );
       } else {
-        onLocationFallback();
+        onLocationError(null);
       }
     });
   });
