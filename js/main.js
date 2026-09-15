@@ -1,5 +1,5 @@
 /**
- * XXX OTO ÇEKİCİ & KURTARMA - GELİŞMİŞ ETKİLEŞİM, ÖZEL BÖLGE SEÇİCİ VE WHATSAPP FORMU
+ * TUZLA YOL YARDIM & OTO ÇEKİCİ - GELİŞMİŞ ETKİLEŞİM, ÖZEL BÖLGE SEÇİCİ VE WHATSAPP FORMU
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.classList.remove('active');
         mainNav.classList.remove('active');
         menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // 1.1 Mobil Hero Teklif Formu Aç/Kapat (Fotoğrafın Kapanmasını Engeller)
+  const heroFormToggle = document.getElementById('hero-form-toggle');
+  const heroFormCard = document.getElementById('hero-form-card');
+  if (heroFormToggle && heroFormCard) {
+    heroFormToggle.addEventListener('click', () => {
+      // Sadece mobilde (veya form akordiyon modundayken) tetikle
+      if (window.innerWidth <= 768) {
+        const isOpen = heroFormCard.classList.toggle('open');
+        const toggleBtnText = heroFormCard.querySelector('.toggle-btn-text');
+        if (toggleBtnText) {
+          toggleBtnText.textContent = isOpen ? 'Formu Kapat' : 'Formu Aç';
+        }
       }
     });
   }
@@ -70,19 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-            const message = encodeURIComponent(`Merhaba XXX Oto Çekici, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`);
+            const message = encodeURIComponent(`Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı Konumum: ${mapsUrl}`);
             window.open(`https://wa.me/${PHONE_NUMBER}?text=${message}`, '_blank');
             btn.innerHTML = originalText;
           },
           (error) => {
-            const defaultMsg = encodeURIComponent('Merhaba XXX Oto Çekici, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ');
+            const defaultMsg = encodeURIComponent('Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var. Bulunduğum bölge: ');
             window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
             btn.innerHTML = originalText;
           },
           { timeout: 8000, enableHighAccuracy: true }
         );
       } else {
-        const defaultMsg = encodeURIComponent('Merhaba XXX Oto Çekici, acil oto çekici / yol yardıma ihtiyacım var.');
+        const defaultMsg = encodeURIComponent('Merhaba Tuzla Yol Yardım, acil oto çekici / yol yardıma ihtiyacım var.');
         window.open(`https://wa.me/${PHONE_NUMBER}?text=${defaultMsg}`, '_blank');
       }
     });

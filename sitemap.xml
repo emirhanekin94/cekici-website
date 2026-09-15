@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Ana Sayfa -->
   <url>
-    <loc>https://xxx-otocekici.com/</loc>
+    <loc>https://tuzlayolyardim.com/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -10,7 +10,7 @@
 
   <!-- İletişim -->
   <url>
-    <loc>https://xxx-otocekici.com/iletisim.html</loc>
+    <loc>https://tuzlayolyardim.com/iletisim.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -18,7 +18,7 @@
 
   <!-- Galeri & Filo -->
   <url>
-    <loc>https://xxx-otocekici.com/galeri.html</loc>
+    <loc>https://tuzlayolyardim.com/galeri.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -26,7 +26,7 @@
 
   <!-- Hizmetlerimiz Ana Sayfası -->
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -34,37 +34,37 @@
 
   <!-- Hizmet Detay Sayfaları -->
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/oto-kurtarma.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/oto-kurtarma.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/yol-yardim-aku-takviye.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/yol-yardim-aku-takviye.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/motosiklet-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/motosiklet-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/agir-vasita-kurtarma.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/agir-vasita-kurtarma.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/hizmetler/kaza-kurtarma-vinc.html</loc>
+    <loc>https://tuzlayolyardim.com/hizmetler/kaza-kurtarma-vinc.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -72,31 +72,31 @@
 
   <!-- Blog Sayfaları -->
   <url>
-    <loc>https://xxx-otocekici.com/blog/</loc>
+    <loc>https://tuzlayolyardim.com/blog/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/blog/otoyolda-arac-arizalandiginda-yapilmasi-gerekenler.html</loc>
+    <loc>https://tuzlayolyardim.com/blog/otoyolda-arac-arizalandiginda-yapilmasi-gerekenler.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/blog/aku-neden-aniden-biter-takviye-nasil-yapilir.html</loc>
+    <loc>https://tuzlayolyardim.com/blog/aku-neden-aniden-biter-takviye-nasil-yapilir.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/blog/otomatik-vitesli-araclar-nasil-cekilir.html</loc>
+    <loc>https://tuzlayolyardim.com/blog/otomatik-vitesli-araclar-nasil-cekilir.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/blog/oto-cekici-fiyatlari-nasil-hesaplanir.html</loc>
+    <loc>https://tuzlayolyardim.com/blog/oto-cekici-fiyatlari-nasil-hesaplanir.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -104,145 +104,145 @@
 
   <!-- 24 Yerel Bölge Sayfası (Local SEO) -->
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/tuzla-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/tuzla-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/sabiha-gokcen-havalimani-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/sabiha-gokcen-havalimani-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/kuzey-marmara-otoyolu-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/kuzey-marmara-otoyolu-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/tem-otoyolu-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/tem-otoyolu-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/d100-e5-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/d100-e5-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/akfirat-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/akfirat-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/tepeoren-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/tepeoren-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/orhanli-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/orhanli-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/aydinli-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/aydinli-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/icmeler-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/icmeler-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/aydintepe-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/aydintepe-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/sifa-mahallesi-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/sifa-mahallesi-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/esenyali-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/esenyali-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/guzelyali-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/guzelyali-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/kurtkoy-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/kurtkoy-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/sevindikli-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/sevindikli-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/tuzla-marina-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/tuzla-marina-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/istanbul-park-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/istanbul-park-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/gebze-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/gebze-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/cayirova-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/cayirova-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/eskihisar-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/eskihisar-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/bayramoglu-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/bayramoglu-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/darica-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/darica-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://xxx-otocekici.com/bolgeler/pendik-oto-cekici.html</loc>
+    <loc>https://tuzlayolyardim.com/bolgeler/pendik-oto-cekici.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

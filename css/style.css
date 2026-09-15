@@ -1,5 +1,5 @@
 /* ==========================================================================
-   XXX OTO ÇEKİCİ & KURTARMA - LUXURY AUTOMOTIVE UI & DESIGN SYSTEM
+   TUZLA YOL YARDIM & OTO ÇEKİCİ - LUXURY AUTOMOTIVE UI & DESIGN SYSTEM
    Ultra-modern Obsidian Slate, Electric Flame & Emerald Rescue Palette
    ========================================================================== */
 
@@ -483,11 +483,10 @@ ul {
   position: relative;
   background-color: #070b14;
   background-image: 
-    radial-gradient(circle at 75% 30%, rgba(255, 85, 0, 0.16) 0%, transparent 55%),
-    linear-gradient(90deg, rgba(7, 11, 20, 0.96) 0%, rgba(7, 11, 20, 0.88) 45%, rgba(7, 11, 20, 0.65) 100%),
+    linear-gradient(90deg, rgba(7, 11, 20, 0.85) 0%, rgba(7, 11, 20, 0.50) 45%, rgba(7, 11, 20, 0.20) 75%, rgba(7, 11, 20, 0.45) 100%),
     url('../images/luks-arac-cekici.webp');
   background-size: cover;
-  background-position: center right;
+  background-position: center 60%;
   background-repeat: no-repeat;
   color: #ffffff;
   padding: 75px 0 90px;
@@ -548,6 +547,7 @@ ul {
   line-height: 1.16;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .hero-title .highlight {
@@ -557,9 +557,10 @@ ul {
 
 .hero-subtitle {
   font-size: 1.12rem;
-  color: #cbd5e1;
+  color: #e2e8f0;
   line-height: 1.65;
   margin-bottom: 30px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .hero-buttons {
@@ -573,7 +574,7 @@ ul {
   display: flex;
   gap: 25px;
   padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat-item {
@@ -586,6 +587,7 @@ ul {
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .stat-number span {
@@ -594,19 +596,24 @@ ul {
 
 .stat-label {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin-top: 4px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* WhatsApp Hızlı Fiyat Formu Kartı */
 .hero-form-card {
-  background: rgba(20, 31, 56, 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(13, 20, 36, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
   padding: 30px;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.form-card-header {
+  margin-bottom: 20px;
 }
 
 .form-card-title {
@@ -619,7 +626,11 @@ ul {
 .form-card-subtitle {
   font-size: 0.85rem;
   color: #94a3b8;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.form-card-toggle-btn {
+  display: none;
 }
 
 .wp-form-group {
@@ -1826,6 +1837,18 @@ article:hover .blog-card-img-wrap img {
    RESPONSIVE DÜZEN
    ========================================================================== */
 @media (max-width: 1024px) {
+  .hero-section {
+    background-image: 
+      linear-gradient(180deg, 
+        rgba(7, 11, 20, 0.74) 0%, 
+        rgba(7, 11, 20, 0.28) 22%, 
+        rgba(7, 11, 20, 0.16) 42%, 
+        rgba(7, 11, 20, 0.60) 72%, 
+        rgba(7, 11, 20, 0.94) 100%),
+      url('../images/kapak-fotografi.webp');
+    background-position: center 36%;
+    background-size: cover;
+  }
   .hero-content {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -2365,25 +2388,111 @@ article:hover .blog-card-img-wrap img {
   }
   .hero-section {
     background-image: 
-      linear-gradient(180deg, rgba(7, 11, 20, 0.94) 0%, rgba(7, 11, 20, 0.86) 50%, rgba(7, 11, 20, 0.96) 100%),
-      url('../images/luks-arac-cekici.webp');
-    background-position: center top;
+      linear-gradient(180deg, 
+        rgba(7, 11, 20, 0.68) 0%, 
+        rgba(7, 11, 20, 0.20) 20%, 
+        rgba(7, 11, 20, 0.08) 38%, 
+        rgba(7, 11, 20, 0.50) 65%, 
+        rgba(7, 11, 20, 0.94) 100%),
+      url('../images/kapak-fotografi.webp');
+    background-position: center 30%;
     background-size: cover;
-    padding: 45px 0 55px;
+    background-repeat: no-repeat;
+    padding: 38px 0 48px;
   }
   .hero-title {
     font-size: 2rem;
     line-height: 1.2;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 1);
   }
   .hero-subtitle {
     font-size: 0.95rem;
     margin-bottom: 22px;
+    background: rgba(7, 11, 20, 0.62);
+    padding: 12px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
   }
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    padding-top: 18px;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(7, 11, 20, 0.68);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 20px;
+  }
+  /* Mobilde Fotoğrafı Kapatmayan Kompakt Akordiyon Teklif Formu */
+  .hero-form-card {
+    padding: 16px 18px;
+    background: rgba(13, 20, 36, 0.88) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  .form-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 0;
+    user-select: none;
+  }
+  .form-card-header-text .form-card-title {
+    font-size: 1.08rem;
+    margin-bottom: 2px;
+  }
+  .form-card-header-text .form-card-subtitle {
+    font-size: 0.76rem;
+    color: #94a3b8;
+    line-height: 1.3;
+  }
+  .form-card-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(255, 85, 0, 0.4);
+    flex-shrink: 0;
+  }
+  .toggle-chevron {
+    transition: transform 0.35s ease;
+  }
+  .hero-form-card .wp-contact-form {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.3s ease;
+  }
+  .hero-form-card.open {
+    padding: 22px 18px;
+  }
+  .hero-form-card.open .wp-contact-form {
+    max-height: 850px;
+    opacity: 1;
+    margin-top: 16px;
+  }
+  .hero-form-card.open .toggle-chevron {
+    transform: rotate(180deg);
   }
   .section-title {
     font-size: 1.65rem;

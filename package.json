@@ -1,5 +1,5 @@
 {
-  "name": "xxx-oto-cekici",
+  "name": "tuzlayolyardim",
   "version": "1.0.0",
   "description": "7/24 En Yakın Oto Çekici ve Oto Kurtarma Web Sitesi",
   "main": "index.html",
@@ -13,6 +13,6 @@
     "yol-yardim",
     "tuzla-cekici"
   ],
-  "author": "XXX",
+  "author": "Tuzla Yol Yardım",
   "license": "ISC"
 }
