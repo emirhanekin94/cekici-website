@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "npx -y serve .",
-    "dev": "npx -y serve ."
+    "dev": "npx -y serve .",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "keywords": [
     "oto-cekici",
@@ -14,5 +15,8 @@
     "tuzla-cekici"
   ],
   "author": "Tuzla Yol Yardım",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sharp": "^0.35.4"
+  }
 }

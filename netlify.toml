@@ -3,7 +3,15 @@
   command = ""
 
 [processing]
-  skip_processing = true
+  skip_processing = false
+[processing.css]
+  bundle = false
+  minify = true
+[processing.js]
+  bundle = false
+  minify = true
+[processing.html]
+  pretty_urls = false
 
 [[headers]]
   for = "/*"
@@ -12,3 +20,17 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"

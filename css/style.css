@@ -194,10 +194,16 @@ ul {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
 }
+
 
 .top-phone-link {
   color: #ffffff;
@@ -482,16 +488,34 @@ ul {
 .hero-section {
   position: relative;
   background-color: #070b14;
-  background-image: 
-    linear-gradient(90deg, rgba(7, 11, 20, 0.85) 0%, rgba(7, 11, 20, 0.50) 45%, rgba(7, 11, 20, 0.20) 75%, rgba(7, 11, 20, 0.45) 100%),
-    url('../images/kapak-fotografi.webp');
-  background-size: cover;
-  background-position: center 60%;
-  background-repeat: no-repeat;
   color: #ffffff;
   padding: 75px 0 90px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-bg-picture,
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(7, 11, 20, 0.85) 0%, rgba(7, 11, 20, 0.50) 45%, rgba(7, 11, 20, 0.20) 75%, rgba(7, 11, 20, 0.45) 100%);
 }
 
 .hero-section::before {
@@ -2387,18 +2411,18 @@ article:hover .blog-card-img-wrap img {
     display: none !important;
   }
   .hero-section {
-    background-image: 
-      linear-gradient(180deg, 
-        rgba(7, 11, 20, 0.68) 0%, 
-        rgba(7, 11, 20, 0.20) 20%, 
-        rgba(7, 11, 20, 0.08) 38%, 
-        rgba(7, 11, 20, 0.50) 65%, 
-        rgba(7, 11, 20, 0.94) 100%),
-      url('../images/kapak-fotografi.webp');
-    background-position: center 30%;
-    background-size: cover;
-    background-repeat: no-repeat;
     padding: 38px 0 48px;
+  }
+  .hero-bg-img {
+    object-position: center 30%;
+  }
+  .hero-bg-overlay {
+    background: linear-gradient(180deg, 
+      rgba(7, 11, 20, 0.68) 0%, 
+      rgba(7, 11, 20, 0.20) 20%, 
+      rgba(7, 11, 20, 0.08) 38%, 
+      rgba(7, 11, 20, 0.50) 65%, 
+      rgba(7, 11, 20, 0.94) 100%);
   }
   .hero-title {
     font-size: 2rem;

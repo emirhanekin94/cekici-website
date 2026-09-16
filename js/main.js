@@ -95,89 +95,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. Akıllı WhatsApp Konum Gönderme Butonları (Gerçek GPS Konum İletimi)
+  // 3. Akıllı WhatsApp Konum Gönderme Butonları (Tarayıcı Konum İzni İstemeden Doğrudan Yönlendirme)
   const geoLocationBtns = document.querySelectorAll('.btn-send-location');
   geoLocationBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<span>📍 GPS Konumu Alınıyor...</span>';
 
-      const restoreBtn = () => {
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2500);
-      };
-
-      // Gerçek GPS konumu başarıyla alındığında
-      const onLocationSuccess = (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        // Gerçek cihaz GPS koordinatı
-        const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Canlı GPS Konumum: ${mapsUrl}`;
-        sendWhatsAppMessage(message);
-        restoreBtn();
-      };
-
-      // Cihazda veya tarayıcıda konum izni kapalıysa ya da gecikirse çalışacak hızlı yönlendirme
-      const onLocationError = (err) => {
-        restoreBtn();
-
-        // Sayfa başlığı veya bölge seçicisinden otomatik bölge tespiti
-        let detected = '';
-        const regionInput = document.getElementById('hidden-region-input');
-        if (regionInput && regionInput.value) {
-          detected = regionInput.value;
+      // Sayfa başlığı, URL veya bölge seçicisinden otomatik konum/bölge/hizmet tespiti
+      let area = '';
+      const regionInput = document.getElementById('hidden-region-input');
+      if (regionInput && regionInput.value) {
+        area = regionInput.value;
+      } else {
+        const title = document.title;
+        const regionMatch = title.match(/([a-zA-ZçğıöşüÇĞİÖŞÜ0-9\-\s]+)\s+Oto Çekici/i);
+        if (regionMatch && regionMatch[1]) {
+          area = regionMatch[1].trim();
         } else {
-          const title = document.title;
-          const match = title.match(/([a-zA-ZçğıöşüÇĞİÖŞÜ\s]+)\s+(?:Oto Çekici|Yol Yardım)/i);
-          if (match && match[1]) {
-            detected = match[1].trim();
+          // Hizmet sayfası kontrolü
+          const serviceMatch = title.match(/^([^|]+)/);
+          if (serviceMatch && serviceMatch[1] && !serviceMatch[1].includes('Hizmetlerimiz') && !serviceMatch[1].includes('Tuzla Yol Yardım')) {
+            area = serviceMatch[1].trim();
+          } else {
+            area = 'Tuzla / Pendik / Gebze ve Çevresi';
           }
         }
-        const area = detected ? detected : 'Tuzla / Pendik ve Çevresi';
-
-        const message = `Merhaba Tuzla Yol Yardım, yolda kaldım acil çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n(Harita konumumu bu sohbete WhatsApp'taki ataç 📎 simgesine basıp iletiyorum)`;
-        sendWhatsAppMessage(message);
-      };
-
-      if (navigator.geolocation) {
-        let hasResponded = false;
-
-        // 4 saniyede konum gelmezse kullanıcıyı bekletmeden direkt WhatsApp'a aktar
-        const fallbackTimer = setTimeout(() => {
-          if (!hasResponded) {
-            hasResponded = true;
-            onLocationError({ code: 3, message: 'timeout' });
-          }
-        }, 4500);
-
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            if (!hasResponded) {
-              hasResponded = true;
-              clearTimeout(fallbackTimer);
-              onLocationSuccess(pos);
-            }
-          },
-          (err) => {
-            if (!hasResponded) {
-              hasResponded = true;
-              clearTimeout(fallbackTimer);
-              onLocationError(err);
-            }
-          },
-          { 
-            enableHighAccuracy: true,
-            timeout: 4000, 
-            maximumAge: 300000 // Son 5 dakikadaki GPS/Wi-Fi konumunu kullanarak iPhone'da 0.1 saniyede açar
-          }
-        );
-      } else {
-        onLocationError(null);
       }
+
+      // Kullanıcının tek dokunuşla göndereceği hazır metin (sonrasında WhatsApp'tan konum göndermesi için yönlendirir)
+      const message = `Merhaba Tuzla Yol Yardım, acil yol yardım / çekiciye ihtiyacım var.\n📍 Bulunduğum Bölge: ${area}\n\n(Harita konumumu bu mesajın hemen ardından WhatsApp üzerinden paylaşıyorum.)`;
+
+      sendWhatsAppMessage(message);
     });
   });
 

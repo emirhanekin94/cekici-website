@@ -31,8 +31,9 @@
   <meta name="twitter:image" content="https://tuzlayolyardim.com/images/arac-cekici.webp">
   <meta property="og:locale" content="tr_TR">
 
-  <!-- Kapak Fotoğrafı: Anında ve yüksek öncelikle yüklenmesi için Preload -->
-  <link rel="preload" as="image" href="images/kapak-fotografi.webp" type="image/webp" fetchpriority="high">
+  <!-- Kapak Fotoğrafı: Mobil ve masaüstü için optimize preload -->
+  <link rel="preload" as="image" href="images/kapak-fotografi-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/kapak-fotografi.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
 
   <!-- Stil Dosyaları -->
   <link rel="stylesheet" href="css/style.css">
@@ -122,8 +123,17 @@
     </div>
   </header>
 
+  <!-- Ana İçerik Başlangıcı (Landmark) -->
+  <main id="main-content">
   <!-- Hero (Giriş) Bölümü -->
   <section class="hero-section">
+    <!-- Anında & Beklemesiz Yüklenen Eager Hero Arka Planı -->
+    <picture class="hero-bg-picture">
+      <source media="(max-width: 768px)" srcset="images/kapak-fotografi-mobile.webp" type="image/webp">
+      <img src="images/kapak-fotografi.webp" alt="Tuzla Oto Çekici ve Yol Yardım" class="hero-bg-img" fetchpriority="high" loading="eager" decoding="sync" width="1280" height="720">
+    </picture>
+    <div class="hero-bg-overlay"></div>
+
     <div class="container hero-content">
       <div class="hero-text">
         <div class="urgent-badge">
@@ -184,8 +194,8 @@
         
         <form class="wp-contact-form" id="hero-quote-form">
           <div class="wp-form-group">
-            <label class="wp-form-label">Bulunduğunuz Bölge / Güzergah *</label>
-            <select name="region_select" class="wp-form-select" required>
+            <label class="wp-form-label" for="hero-region-select">Bulunduğunuz Bölge / Güzergah *</label>
+            <select name="region_select" id="hero-region-select" aria-label="Bulunduğunuz Bölge / Güzergah" class="wp-form-select" required>
               <option value="Tuzla" selected>📍 Tuzla (İçmeler, Aydınlı, Marina, E-5)</option>
               <option value="Pendik">📍 Pendik (Merkez, Sahil, Kaynarca, Çamlık)</option>
               <option value="Kurtköy">📍 Kurtköy & Sabiha Gökçen Havalimanı</option>
@@ -199,8 +209,8 @@
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">Araç Türü *</label>
-            <select name="vehicle_type_select" class="wp-form-select" required>
+            <label class="wp-form-label" for="hero-vehicle-select">Araç Türü *</label>
+            <select name="vehicle_type_select" id="hero-vehicle-select" aria-label="Araç Türü" class="wp-form-select" required>
               <option value="Otomobil" selected>Otomobil (Binek / SUV / Sedan)</option>
               <option value="Motosiklet">Motosiklet</option>
               <option value="Kamyonet">Kamyonet / Hafif Ticari</option>
@@ -212,8 +222,8 @@
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">Yaşanan Problem / Arıza *</label>
-            <select name="problem_select" class="wp-form-select" required>
+            <label class="wp-form-label" for="hero-problem-select">Yaşanan Problem / Arıza *</label>
+            <select name="problem_select" id="hero-problem-select" aria-label="Yaşanan Problem / Arıza" class="wp-form-select" required>
               <option value="Trafik Kazası (Yürümüyor)">Trafik Kazası (Yürümüyor / Hasarlı)</option>
               <option value="Motor / Mekanik Arızası">Motor / Mekanik Arızası (Stop Etti)</option>
               <option value="Akü Bitti / Marş Basmıyor">Akü Bitti / Marş Basmıyor</option>
@@ -225,13 +235,13 @@
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">Bırakılacağı Hedef / Sanayi</label>
-            <input type="text" name="to_location" class="wp-form-input" placeholder="Örn: İçmeler Sanayi, Bostancı veya Servis">
+            <label class="wp-form-label" for="hero-to-location">Bırakılacağı Hedef / Sanayi</label>
+            <input type="text" name="to_location" id="hero-to-location" class="wp-form-input" placeholder="Örn: İçmeler Sanayi, Bostancı veya Servis">
           </div>
 
           <div class="wp-form-group">
-            <label class="wp-form-label">Kısa Not / Ek Açıklama</label>
-            <input type="text" name="user_note" class="wp-form-input" placeholder="Örn: Tekerlek kilitli, yeraltı otoparkında">
+            <label class="wp-form-label" for="hero-user-note">Kısa Not / Ek Açıklama</label>
+            <input type="text" name="user_note" id="hero-user-note" class="wp-form-input" placeholder="Örn: Tekerlek kilitli, yeraltı otoparkında">
           </div>
 
           <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 14px; margin-top: 10px;">
@@ -1852,7 +1862,7 @@
       </div>
     </div>
   </section>
-
+  </main>
   
   <!-- Tam 4 Sütunlu Zengin Footer -->
   <footer class="site-footer">
@@ -1942,6 +1952,6 @@
   </aside>
 
   <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
