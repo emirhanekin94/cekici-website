@@ -3203,4 +3203,14 @@ iframe[title*="Netlify"],
   opacity: 0 !important;
 }
 
+/* ==========================================================================
+   CORE WEB VITALS & PAGESPEED OPTİMİZASYONLARI
+   content-visibility: auto ile ekran dışı bölümlerin gereksiz render'ını engelle
+   ========================================================================== */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 750px;
+}
+
+
 

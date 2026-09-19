@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHT62VL18P"></script>
+  <!-- Google tag (gtag.js) - PageSpeed LCP & CWV Optimized Deferred Loading -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-JHT62VL18P');
+
+    function loadGtag() {
+      if (window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHT62VL18P';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGtag);
+    } else {
+      window.addEventListener('load', () => setTimeout(loadGtag, 1000));
+    }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -219,7 +231,7 @@
     <!-- Anında & Beklemesiz Yüklenen Eager Hero Arka Planı -->
     <picture class="hero-bg-picture">
       <source media="(max-width: 768px)" srcset="images/kapak-fotografi-mobile.webp" type="image/webp">
-      <img src="images/kapak-fotografi.webp" alt="Tuzla Oto Çekici ve Yol Yardım" class="hero-bg-img" fetchpriority="high" loading="eager" decoding="sync" width="1280" height="720">
+      <img src="images/kapak-fotografi.webp" alt="Tuzla Oto Çekici ve Yol Yardım" class="hero-bg-img" fetchpriority="high" loading="eager" decoding="async" width="1280" height="720">
     </picture>
     <div class="hero-bg-overlay"></div>
 
@@ -343,7 +355,7 @@
   </section>
 
   <!-- Hizmetlerimiz Bölümü -->
-  <section class="section" id="hizmetler">
+  <section class="section content-auto" id="hizmetler">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Hizmet Alanlarımız</span>
@@ -518,7 +530,7 @@
   </section>
 
   <!-- 4 Adımlı İşleyiş Süreci -->
-  <section class="section" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
+  <section class="section content-auto" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Nasıl Çalışıyoruz?</span>
@@ -555,7 +567,7 @@
   </section>
 
   <!-- 24 Bölge Lüks Kart Sistemi (Yenilendi) -->
-  <section class="section section-dark" id="bolgeler">
+  <section class="section section-dark content-auto" id="bolgeler">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Hizmet Bölgelerimiz</span>
@@ -1137,7 +1149,7 @@
   </section>
 
   <!-- Fotoğraf Galeri Alanı -->
-  <section class="section" id="galeri">
+  <section class="section content-auto" id="galeri">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Foto Galeri & Filomuz</span>
@@ -1246,7 +1258,7 @@
   </section>
 
   <!-- Sürücü Rehberi & Blog Bölümü -->
-  <section class="section" style="background: #ffffff; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <section class="section content-auto" style="background: #ffffff; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Faydalı Bilgiler & Rehber</span>
@@ -1330,7 +1342,7 @@
   </section>
 
   <!-- Gerçek Google Müşteri Yorumları (Tüm Yorumlara İşletme Yanıtları Eklendi) -->
-  <section class="section reviews-section" id="yorumlar">
+  <section class="section reviews-section content-auto" id="yorumlar">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Google İşletme Profili</span>
@@ -1824,7 +1836,7 @@
   </section>
 
   <!-- Neden Biz? (Why Choose Us) -->
-  <section class="section" style="background: var(--bg-light); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <section class="section content-auto" style="background: var(--bg-light); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Kurumsal Güvence</span>
@@ -1886,7 +1898,7 @@
 
   
   <!-- Semantik Bölgesel Otorite & Bilgi Bölümü (SEO İçerik Bloğu) -->
-  <section class="section" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
+  <section class="section content-auto" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
     <div class="container" style="max-width: 1000px;">
       <div class="section-header" style="text-align: left; margin-bottom: 30px;">
         <span class="section-tag">Yerel Çekici Filosu</span>
@@ -1921,7 +1933,7 @@
   </section>
 
   <!-- Sıkça Sorulan Sorular (FAQ) Akordiyon Bölümü -->
-  <section class="section" id="sss" style="background: var(--bg-light); border-bottom: 1px solid var(--border-light);">
+  <section class="section content-auto" id="sss" style="background: var(--bg-light); border-bottom: 1px solid var(--border-light);">
     <div class="container" style="max-width: 900px;">
       <div class="section-header">
         <span class="section-tag">Merak Edilenler</span>
@@ -1984,7 +1996,7 @@
   </section>
 
   <!-- Google Harita & İletişim Bölümü -->
-  <section class="section section-dark" id="harita-iletisim">
+  <section class="section section-dark content-auto" id="harita-iletisim">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Canlı Konum & İletişim</span>
@@ -2138,7 +2150,8 @@
     </a>
   </aside>
 
-  <!-- JavaScript -->
+  <!-- JavaScript (Performans & Güvenlik Kalkanı) -->
   <script src="js/main.js" defer></script>
+  <script src="js/anti-fraud.js" defer></script>
 </body>
 </html>
